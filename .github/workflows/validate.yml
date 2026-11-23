@@ -25,18 +25,23 @@ jobs:
           python -m pip install -r requirements-dev.txt
       - name: Install Chromium
         run: python -m playwright install --with-deps chromium
-      - name: Validate structured news data and source register
-        run: python scripts/validate_news.py
-      - name: Run unit tests
+      - name: Resolve latest report date
+        id: report
+        run: echo "date=$(python scripts/validate_news.py --print-latest-date)" >> "$GITHUB_OUTPUT"
+      - name: Validate latest daily bundle
+        run: python scripts/validate_news.py --date "${{ steps.report.outputs.date }}"
+      - name: Run unit and site-builder tests
         run: python -m pytest -q
       - name: Run Olah Skill static article validation
-        run: python .agent/skills/olah-style-paper-posts/scripts/validate.py posts/2026-11-23/index.html
+        run: python .agent/skills/olah-style-paper-posts/scripts/validate.py "posts/${{ steps.report.outputs.date }}/index.html"
       - name: Run Chromium responsive and interaction QA
-        run: python .agent/skills/olah-style-paper-posts/scripts/browser_check.py posts/2026-11-23/index.html --output artifacts/2026-11-23
-      - name: Upload browser QA evidence
+        run: python .agent/skills/olah-style-paper-posts/scripts/browser_check.py "posts/${{ steps.report.outputs.date }}/index.html" --output "artifacts/${{ steps.report.outputs.date }}"
+      - name: Build curated Pages artifact
+        run: python scripts/build_site.py --output dist
+      - name: Upload QA evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: xm-news-browser-qa
-          path: artifacts/2026-11-23/
+          path: artifacts/
           if-no-files-found: ignore

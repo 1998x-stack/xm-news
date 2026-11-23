@@ -169,7 +169,8 @@
       "title": "The World in Brief: COP31 collapses; Russian ship hit in Baltic Sea, and more",
       "published_date": "2026-11-23",
       "summary": "当日简报称美国AI相关股票抛售扩散至亚洲；COP31谈判因欧盟及部分国家拒绝拟议协议而陷入僵局。",
-      "access_note": "使用官方播客页公开说明，不声称读取付费全文。"
+      "access_note": "使用官方播客页公开说明，不声称读取付费全文。",
+      "url": "https://shows.acast.com/theeconomistmorningbriefing/episodes/cop31-collapses-russian-ship-hit-in-baltic-sea-and-mor"
     },
     {
       "source_id": "S18",
@@ -177,7 +178,8 @@
       "title": "Axis of malice: Deeper collusion between hostile powers threatens the West",
       "published_date": "2026-11-21",
       "summary": "周刊封面主题关注俄罗斯、中国、伊朗、朝鲜之间合作加深对制裁和国际秩序的影响。",
-      "access_note": "依据官方周刊播客页及公开介绍归纳；属于媒体分析框架。"
+      "access_note": "依据官方周刊播客页及公开介绍归纳；属于媒体分析框架。",
+      "url": "https://shows.acast.com/the-economist-weekly-edition/episodes"
     },
     {
       "source_id": "S20",
@@ -185,7 +187,8 @@
       "title": "Why you should expect an AI crash",
       "published_date": "2026-11-12",
       "summary": "AI资产可能经历泡沫式回调，但技术投资泡沫破裂并不必然转化为系统性金融危机。",
-      "access_note": "作为前一周市场讨论背景，非当日新发文章。"
+      "access_note": "作为前一周市场讨论背景，非当日新发文章。",
+      "url": "https://www.economist.com/leaders/2026/11/12/why-you-should-expect-an-ai-crash"
     },
     {
       "source_id": "S14",
@@ -193,7 +196,8 @@
       "title": "US Stock Futures Rally After AI Rout, Havens Fall: Markets Wrap",
       "published_date": "2026-11-23",
       "summary": "亚洲时段美股期货反弹，但亚洲市场分化；投资者继续评估AI资本开支、芯片需求和估值。",
-      "access_note": "通过Swissinfo转载的Bloomberg稿件核验；期货非现金收盘。"
+      "access_note": "通过Swissinfo转载的Bloomberg稿件核验；期货非现金收盘。",
+      "url": "https://www.swissinfo.ch/eng/us-stock-futures-rally-after-ai-rout,-havens-fall:-markets-wrap/92421262"
     },
     {
       "source_id": "S15",
@@ -201,7 +205,8 @@
       "title": "Gold Deluge Keeps China’s $1 Trillion Trade Surplus in Check",
       "published_date": "2026-11-23",
       "summary": "黄金进口增加机械性压低商品贸易顺差；进口金额和进口实物量需分开解读。",
-      "access_note": "通过Swissinfo转载的Bloomberg稿件核验；分析师全年顺差数字属于估算。"
+      "access_note": "通过Swissinfo转载的Bloomberg稿件核验；分析师全年顺差数字属于估算。",
+      "url": "https://www.swissinfo.ch/eng/gold-deluge-keeps-chinas-$1-trillion-trade-surplus-in-check/92421298"
     },
     {
       "source_id": "S16",
@@ -209,7 +214,8 @@
       "title": "China’s Record State Fund Rescue Masks Deepening Investor Gloom",
       "published_date": "2026-11-23",
       "summary": "国家队ETF资金流入创纪录，但小盘股和融资交易仍显示市场内部压力。",
-      "access_note": "通过Business Times转载稿核验。"
+      "access_note": "通过Business Times转载稿核验。",
+      "url": "https://www.businesstimes.com.sg/international/chinas-record-state-fund-rescue-masks-deepening-investor-gloom"
     },
     {
       "source_id": "S21",
@@ -217,7 +223,8 @@
       "title": "Asia AI rout puts governments in a bind",
       "published_date": "2026-11-23",
       "summary": "AI硬件需求放缓可能通过半导体出口传导至韩国和台湾；文中GDP影响为压力情景测算。",
-      "access_note": "观点评论与情景估算，不是已发生的经济损失。"
+      "access_note": "观点评论与情景估算，不是已发生的经济损失。",
+      "url": "https://www.reuters.com/commentary/breakingviews/asia-ai-rout-puts-governments-bind-2026-11-23/"
     }
   ],
   "source_ids": [
@@ -258,5 +265,20 @@
   "summary": "创业板指上涨3.08%，港股主要指数微跌；国内两融规则调整进入落地前窗口，全球投资者仍在重新评估AI资本开支与盈利兑现。",
   "report_version": "2.0",
   "article_path": "posts/2026-11-23/index.html",
-  "pages_url": "https://1998x-stack.github.io/xm-news/posts/2026-11-23/"
+  "pages_url": "https://1998x-stack.github.io/xm-news/posts/2026-11-23/",
+  "market_date": "2026-11-23",
+  "market_session": "A股与港股收盘；美国现金市场未收盘",
+  "data_quality": {
+    "status": "cross_checked_with_source_conflicts",
+    "source_count": 25,
+    "known_conflicts": [
+      "A股上涨家数不同来源为超过4600只与4306只，保留口径差异"
+    ],
+    "limitations": [
+      "新闻联播16条清单来自财联社整理，不是完整官方逐字稿。",
+      "A股上涨家数在不同来源间存在4306只与超过4600只的口径差异。",
+      "美国期货为亚洲时段报价，美国当日现金市场在截稿时尚未收盘。",
+      "部分Economist/Bloomberg内容通过公开播客说明或授权转载核验，未取得付费全文。"
+    ]
+  }
 }
