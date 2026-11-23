@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="description" content="2026年11月23日新闻联播、A股港股、全球市场与Economist、Bloomberg重点文章研究。">
+<title>2026.11.23｜A股修复，AI风险重估</title>
+<style>
+:root{color-scheme:light;--paper:#fffdf9;--ink:#203035;--subtle:#53676d;--accent:#147f80;--transform:#d06d4d;--structure:#7461ba;--annotation:#916c22;--border:#dce8e4;--surface:#f3f9f6;--max-reading:850px;--positive:#147f80;--negative:#b85b47}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.85 system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif}
+a{color:var(--accent);text-underline-offset:.18em}
+a:hover{color:var(--transform)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.skip-link{position:absolute;left:1rem;top:-5rem;background:var(--ink);color:white;padding:.5rem 1rem;z-index:20}
+.skip-link:focus{top:1rem}
+.layout{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:210px minmax(0,1fr);gap:clamp(2rem,5vw,5rem);padding:3.6rem 2rem 7rem}
+.toc{position:sticky;top:2rem;align-self:start;font-size:.84rem;line-height:1.55;max-height:calc(100vh - 4rem);overflow:auto}
+.toc strong{display:block;font-size:.8rem;letter-spacing:.12em;margin-bottom:1rem;color:var(--subtle)}
+.toc a{display:block;text-decoration:none;color:var(--subtle);border-left:2px solid var(--border);padding:.4rem .75rem}
+.toc a:hover{border-color:var(--accent);color:var(--accent);background:var(--surface)}
+main{min-width:0}
+article{max-width:var(--max-reading);margin:0 auto;min-width:0}
+.kicker{font-size:.78rem;letter-spacing:.14em;color:var(--accent);font-weight:750;text-transform:uppercase}
+.article-header{padding:.5rem 0 1.4rem;border-bottom:1px solid var(--border)}
+.article-header h1{font-size:clamp(2.45rem,5.4vw,4.2rem);line-height:1.14;letter-spacing:-.045em;margin:.6rem 0 1rem;max-width:780px}
+.dek{font-size:clamp(1.1rem,2vw,1.3rem);line-height:1.7;color:var(--subtle);max-width:760px;margin:.5rem 0 1.1rem}
+.meta{font-size:.84rem;color:var(--subtle)}
+.metrics{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.7rem;margin:1.5rem 0 1.2rem}
+.metric{border:1px solid var(--border);border-radius:.85rem;background:white;padding:.8rem .85rem;min-width:0}
+.metric .name{font-size:.76rem;color:var(--subtle);display:block}
+.metric .value{display:block;font-size:clamp(1.15rem,2vw,1.65rem);font-weight:760;letter-spacing:-.035em;line-height:1.35;margin:.2rem 0}
+.metric .detail{font-size:.73rem;color:var(--subtle)}
+.positive{color:var(--positive)}.negative{color:var(--negative)}
+.filterbar{display:flex;align-items:center;gap:.55rem;flex-wrap:wrap;margin:1.35rem 0}
+.filterbar span{font-size:.82rem;color:var(--subtle);margin-right:.2rem}
+button{font:inherit;font-size:.82rem;cursor:pointer;padding:.45rem .8rem;border:1px solid var(--border);border-radius:999px;background:white;color:var(--ink)}
+button[aria-pressed="true"]{background:var(--accent);color:white;border-color:var(--accent)}
+.status{min-height:1.35rem;font-size:.78rem;color:var(--subtle)}
+section{scroll-margin-top:2rem;margin-top:3.9rem}
+h2{font-size:clamp(1.55rem,3vw,2rem);line-height:1.4;margin:0 0 1.2rem;letter-spacing:-.025em}
+h3{font-size:1.16rem;line-height:1.5;margin:2rem 0 .6rem}
+p{margin:.9rem 0}
+.lead{font-size:1.08rem;color:#31464b}
+.small{font-size:.86rem;color:var(--subtle)}
+.note{margin:1.4rem 0;padding:.85rem 1.05rem;border-left:4px solid var(--accent);background:var(--surface);border-radius:0 .6rem .6rem 0}
+.warning{border-left-color:var(--annotation);background:#fbf7ec}
+figure{margin:1.7rem 0;padding:1.1rem;border:1px solid var(--border);border-radius:1rem;background:white}
+figure svg{width:100%;height:auto;display:block}
+figcaption{font-size:.82rem;line-height:1.7;color:var(--subtle);border-top:1px solid var(--border);margin-top:.8rem;padding-top:.75rem}
+table{width:100%;border-collapse:collapse;font-size:.9rem;margin:1.1rem 0}
+th,td{border-bottom:1px solid var(--border);text-align:left;padding:.62rem .5rem;vertical-align:top}
+th{font-weight:700;background:var(--surface)}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.9rem}
+.panel{border:1px solid var(--border);border-radius:.85rem;padding:1rem;background:white}
+.panel h3{margin:.1rem 0 .5rem}
+.panel p{font-size:.9rem;margin:.45rem 0}
+.tag{display:inline-block;font-size:.72rem;color:var(--accent);background:var(--surface);border-radius:999px;padding:.15rem .5rem;margin-right:.25rem}
+.story[hidden]{display:none!important}
+.source-list{padding-left:1.2rem}
+.source-list li{margin:.5rem 0;font-size:.88rem}
+footer{border-top:1px solid var(--border);margin-top:4rem;padding-top:1.4rem;color:var(--subtle);font-size:.82rem}
+@media(max-width:960px){.layout{display:block;padding:2rem 1.25rem 5rem}.toc{position:static;max-height:none;margin-bottom:1.5rem;border-bottom:1px solid var(--border);padding-bottom:1rem}.toc a{display:inline-block;border:0;border-bottom:2px solid transparent;margin-right:.3rem;padding:.35rem .3rem}.metrics{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:560px){body{font-size:15.5px}.layout{padding:1.2rem 1rem 4rem}.metrics{grid-template-columns:repeat(2,minmax(0,1fr));gap:.55rem}.metric{padding:.7rem}.grid2{grid-template-columns:1fr}figure{padding:.65rem}section{margin-top:3rem}h2{margin-bottom:.9rem}table{font-size:.82rem}th,td{padding:.5rem .35rem}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+@media print{body{background:white;color:black;font-size:10.5pt}.layout{display:block;padding:0}.toc,.filterbar,.skip-link{display:none!important}article{max-width:none}.metrics{grid-template-columns:repeat(5,1fr)}figure{break-inside:avoid}.story[hidden]{display:block!important}a{color:#164e54}section{margin-top:1.6rem}}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#content">跳转至正文</a>
+<div class="layout">
+<nav class="toc" aria-label="文章目录">
+<strong>DAILY RESEARCH / 2026.11.23</strong>
+<a href="#markets">01 市场收盘</a>
+<a href="#ai">02 全球AI风险</a>
+<a href="#policy">03 国内政策</a>
+<a href="#broadcast">04 新闻联播</a>
+<a href="#media">05 国际媒体</a>
+<a href="#synthesis">06 综合判断</a>
+<a href="#watch">07 观察清单</a>
+<a href="#sources">08 来源</a>
+</nav>
+<main id="content">
+<article>
+<header class="article-header">
+<div class="kicker">XM NEWS · DAILY BRIEFING</div>
+<h1>A股修复，港股观望；AI风险仍在重估</h1>
+<p class="dek">11月23日的市场并不是简单的“全面反弹”：中国成长板块强势回升，港股微跌，而全球投资者仍在重新评估AI资本开支、芯片需求和估值之间的关系。</p>
+<div class="meta">2026年11月23日 · 北京时间22:08截稿 · A股与港股为收盘数据 · 美国市场为亚洲时段期货及前一交易日信息</div>
+<div class="metrics">
+<div class="metric"><span class="name">创业板指</span><span class="value positive">+3.08%</span><span class="detail">2280.20点</span></div>
+<div class="metric"><span class="name">沪深成交额</span><span class="value">1.5529万亿</span><span class="detail">较前日增加1307亿元</span></div>
+<div class="metric"><span class="name">恒生指数</span><span class="value negative">−0.12%</span><span class="detail">22383.74点</span></div>
+<div class="metric"><span class="name">央行净投放</span><span class="value">1200亿元</span><span class="detail">隔夜逆回购净额</span></div>
+<div class="metric"><span class="name">融资保证金下限</span><span class="value">80%</span><span class="detail">11月30日起生效</span></div>
+</div>
+</header>
+
+<div class="filterbar" aria-label="内容筛选">
+<span>阅读视图：</span>
+<button type="button" data-filter="all" aria-pressed="false">全部</button>
+<button type="button" data-filter="markets" aria-pressed="false">市场</button>
+<button type="button" data-filter="policy" aria-pressed="false">政策与国内</button>
+<button type="button" data-filter="global" aria-pressed="false">国际与全球</button>
+</div>
+<div id="filter-status" class="status" aria-live="polite">当前显示全部内容。</div>
+
+<section id="markets" class="story" data-topic="markets">
+<h2>01 / 市场收盘：A股成长风格反弹，港股小幅收跌</h2>
+<p class="lead">创业板指涨幅明显领先，上证指数仅小幅上涨，科创50仍收跌。今天的A股反弹主要集中在成长、机器人和AI应用等方向，不是所有权重板块同步转强。</p>
+<table>
+<thead><tr><th>指数</th><th>收盘点位</th><th>涨跌幅</th></tr></thead>
+<tbody>
+<tr><td>上证指数</td><td>3538.95</td><td class="positive">+0.15%</td></tr>
+<tr><td>深证成指</td><td>10454.37</td><td class="positive">+1.93%</td></tr>
+<tr><td>创业板指</td><td>2280.20</td><td class="positive">+3.08%</td></tr>
+<tr><td>沪深300</td><td>3958.29</td><td class="positive">+0.09%</td></tr>
+<tr><td>科创50</td><td>1227.89</td><td class="negative">−0.26%</td></tr>
+<tr><td>北证50</td><td>795.38</td><td class="positive">+4.67%</td></tr>
+</tbody>
+</table>
+<figure>
+<svg role="img" aria-labelledby="a-title a-desc" viewBox="0 0 760 350" xmlns="http://www.w3.org/2000/svg">
+<title id="a-title">11月23日主要指数涨跌幅对比</title>
+<desc id="a-desc">创业板指上涨3.08%，深证成指上涨1.93%，上证指数上涨0.15%，恒生指数下跌0.12%，恒生科技指数下跌0.09%。</desc>
+<rect width="760" height="350" rx="14" fill="#fbfdfb"/>
+<text x="24" y="32" fill="#53676d" font-size="15">当日收盘涨跌幅（%）</text>
+<line x1="300" y1="52" x2="300" y2="312" stroke="#8da19d" stroke-width="1.5"/>
+<g font-size="17" fill="#203035">
+<text x="24" y="91">创业板指</text><text x="24" y="143">深证成指</text><text x="24" y="195">上证指数</text><text x="24" y="247">恒生指数</text><text x="24" y="299">恒生科技</text>
+</g>
+<g fill="#147f80">
+<rect x="300" y="68" width="262" height="28" rx="5"/><rect x="300" y="120" width="164" height="28" rx="5"/><rect x="300" y="172" width="13" height="28" rx="4"/>
+</g>
+<g fill="#b85b47">
+<rect x="290" y="224" width="10" height="28" rx="4"/><rect x="292" y="276" width="8" height="28" rx="4"/>
+</g>
+<g font-size="16" font-weight="700">
+<text x="572" y="88" fill="#147f80">+3.08%</text><text x="474" y="140" fill="#147f80">+1.93%</text><text x="322" y="192" fill="#147f80">+0.15%</text><text x="258" y="244" fill="#b85b47">−0.12%</text><text x="260" y="296" fill="#b85b47">−0.09%</text>
+</g>
+<text x="300" y="334" fill="#53676d" font-size="13" text-anchor="middle">0</text>
+</svg>
+<figcaption>指数强弱对比显示：成长板块修复幅度远高于上证权重，港股主要指数接近平盘。不同市场指数成分和币种不同，不能仅凭单日涨跌推断长期强弱。</figcaption>
+</figure>
+<div class="grid2">
+<div class="panel"><span class="tag">A股</span><h3>成交放大，成长主题领涨</h3><p>两市成交约1.5529万亿元，较上一交易日放量约1307亿元。人形机器人、AI漫剧/影视、医疗服务、自动化设备等活跃；银行、煤炭、油气和白酒相对偏弱。</p></div>
+<div class="panel"><span class="tag">港股</span><h3>指数微跌，个股分化</h3><p>恒指22383.74点（−0.12%），恒科3508点（−0.09%），国企指数7527.98点（−0.35%），主板成交约2530.92亿港元。</p></div>
+</div>
+<div class="note warning"><strong>统计口径：</strong>每日经济新闻报道超过4600只个股上涨；另一份21财经口径报道4306只。两者统计范围或行情快照不同，保留差异，不将其合并成一个精确值。两份报道均指向当日市场广泛反弹。</div>
+</section>
+
+<section id="ai" class="story" data-topic="global">
+<h2>02 / 全球AI风险：期货反弹，不代表风险解除</h2>
+<p>Bloomberg记录，周一亚洲时段标普500期货上涨约2.2%，纳斯达克100期货上涨约2.9%。但此前一周五，Nvidia股价下跌14%，Anthropic上市后第二个交易日下跌8.5%，半导体股指标下跌约11%。亚洲市场也并非同步反弹：韩国Kospi仍承压，日本市场因假日休市。</p>
+<figure>
+<svg role="img" aria-labelledby="flow-title flow-desc" viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg">
+<title id="flow-title">AI估值修正向亚洲市场传导的路径</title>
+<desc id="flow-desc">AI资本开支回报疑虑影响芯片和数据中心订单预期，再传导至亚洲科技出口、市场风险偏好和政策托底。</desc>
+<rect width="760" height="300" rx="14" fill="#fbfdfb"/>
+<g stroke="#147f80" stroke-width="3" fill="none"><path d="M210 145 H270"/><path d="M490 145 H550"/><path d="M260 140 l10 5 -10 5"/><path d="M540 140 l10 5 -10 5"/></g>
+<rect x="24" y="85" width="186" height="120" rx="12" fill="#f7e8e1" stroke="#d6a18e"/>
+<rect x="286" y="85" width="204" height="120" rx="12" fill="#f6f1e4" stroke="#d7c28f"/>
+<rect x="566" y="85" width="170" height="120" rx="12" fill="#e5f2ee" stroke="#9ac7bb"/>
+<g font-size="18" font-weight="700" fill="#203035" text-anchor="middle"><text x="117" y="125">AI估值与</text><text x="117" y="153">资本开支疑虑</text><text x="388" y="125">芯片 / 数据中心</text><text x="388" y="153">订单与利润预期</text><text x="651" y="125">亚洲市场</text><text x="651" y="153">风险偏好与政策</text></g>
+<g font-size="13" fill="#53676d" text-anchor="middle"><text x="117" y="181">估值、融资与变现</text><text x="388" y="181">需求、库存、利用率</text><text x="651" y="181">韩国、台湾、中国</text></g>
+<text x="380" y="252" font-size="14" fill="#53676d" text-anchor="middle">风险传导链条：资本回报预期 → 产业订单预期 → 出口经济体与权益市场</text>
+</svg>
+<figcaption>机制示意图，不代表所有市场都按同一方向波动。Reuters Breakingviews指出，韩国和台湾对半导体出口及AI硬件需求更敏感；其GDP冲击数字属于情景测算。</figcaption>
+</figure>
+<div class="note"><strong>关键问题变化：</strong>市场不再只问“AI模型会不会继续进步”，还在问“数据中心、芯片和模型服务的投入能否产生足够现金流”。技术长期价值与当前资产价格合理性是两个不同问题。</div>
+<p>Reuters Breakingviews引用HSBC的压力情景：若全球AI硬件需求下降20%，2027年台湾、韩国GDP增速可能分别受到约4.4和1.4个百分点冲击。它是情景估算，不是已经发生的损失，也不是确定预测。</p>
+</section>
+
+<section id="policy" class="story" data-topic="policy">
+<h2>03 / 国内政策：融资保证金下限降至80%</h2>
+<p>沪深北交易所11月22日发布通知，投资者融资买入证券时，融资保证金比例不得低于80%，自2026年11月30日起施行；此前下限为100%。交易所同时要求券商加强异常交易管理，对异常交易投资者差异化管控。</p>
+<figure>
+<svg role="img" aria-labelledby="margin-title margin-desc" viewBox="0 0 760 260" xmlns="http://www.w3.org/2000/svg">
+<title id="margin-title">融资保证金比例调整的理论购买能力示意</title>
+<desc id="margin-desc">相同10万元保证金，保证金比例100%时对应10万元融资买入金额，比例80%时对应12.5万元，理论能力提升25%。</desc>
+<rect width="760" height="260" rx="14" fill="#fbfdfb"/>
+<g fill="#53676d" font-size="14"><text x="24" y="42">同样10万元保证金的简化示例</text></g>
+<text x="24" y="98" font-size="18" fill="#203035">原规则 100%</text><rect x="205" y="70" width="260" height="42" rx="7" fill="#aabdb8"/><text x="480" y="98" font-size="18" fill="#203035" font-weight="700">10万元</text>
+<text x="24" y="170" font-size="18" fill="#203035">新规则 80%</text><rect x="205" y="142" width="325" height="42" rx="7" fill="#147f80"/><text x="545" y="170" font-size="18" fill="#147f80" font-weight="700">12.5万元</text>
+<rect x="205" y="207" width="145" height="28" rx="14" fill="#f6f1e4"/><text x="277" y="226" text-anchor="middle" font-size="14" fill="#916c22" font-weight="700">理论空间 +25%</text>
+</svg>
+<figcaption>按“保证金金额 ÷ 融资买入金额 = 保证金比例”的简化关系计算。实际可融资额度还取决于券商授信、证券折算率、账户风险和交易规则。</figcaption>
+</figure>
+<div class="note warning"><strong>不要混淆：</strong>保证金比例降低提高的是理论杠杆空间，不是自动向市场注入现金。市场报道中的“近4000亿元”属于测算，不是已实现的实际买入资金。</div>
+<h3>央行流动性与人民币</h3>
+<table><tbody>
+<tr><th>隔夜逆回购操作</th><td>4995亿元，利率1.25%</td></tr>
+<tr><th>当日到期</th><td>3795亿元</td></tr>
+<tr><th>净投放</th><td>1200亿元</td></tr>
+<tr><th>隔夜Shibor / 7天Shibor</th><td>1.2620% / 1.3730%</td></tr>
+<tr><th>美元兑人民币中间价</th><td>6.7120（较前日上调11个基点）</td></tr>
+</tbody></table>
+<p>公开市场操作为当日银行体系流动性提供净投放。它与两融规则调整处于同一政策窗口，但不能仅凭同日发生就断言其直接导致A股上涨。</p>
+</section>
+
+<section id="broadcast" class="story" data-topic="policy">
+<h2>04 / 新闻联播：民生、产业和科技的政策信号</h2>
+<p>当晚16条要闻可以归纳为四组：社区与家庭公共服务、航天和数据人才、能源与产业基础设施、国际风险事件。</p>
+<div class="grid2">
+<div class="panel"><span class="tag">公共服务</span><h3>完整社区与“一老一小”</h3><p>住房公积金使用范围拓宽、养老托育服务体系建设，与城市公共服务和家庭支出安排相关。报道未提供统一政策额度，不能擅自补充。</p></div>
+<div class="panel"><span class="tag">航天科技</span><h3>神舟二十四号任务准备</h3><p>空间站完成轨道姿态调整，发射场、飞船和火箭系统状态稳定。空间站将迎来首位外籍航天员；具体发射时间以官方后续发布为准。</p></div>
+<div class="panel"><span class="tag">技能人才</span><h3>数据职业教育计划</h3><p>国家数据局、教育部成立全国数据职业教育教学指导委员会，未来五年推进专业布局、职业能力研究和产教融合，目标面向2030年。</p></div>
+<div class="panel"><span class="tag">能源基础设施</span><h3>充电设施达到2539.1万个</h3><p>国家能源局统计口径为“充电枪”：公共528.3万个，私人2010.8万个。私人设施增速快于公共设施，数量增长不等于公共快充覆盖完全均衡。</p></div>
+</div>
+<p>其他产业信息包括冰雪季、月牙泉水域变化、中国—中东欧经贸合作示范区1—10月进出口522.9亿元，以及海洋药物和功能制品业增加值996亿元。国际新闻涉及COP31、俄船只事件、约旦河西岸、日本禽流感和达美航空系统故障。</p>
+</section>
+
+<section id="media" class="story" data-topic="global">
+<h2>05 / 国际媒体：把新闻放进更大的经济叙事</h2>
+<div class="panel">
+<span class="tag">The Economist · 11月23日</span>
+<h3>The World in Brief：AI抛售扩散至亚洲，COP31谈判陷入僵局</h3>
+<p>当日官方简报将美国AI相关股票抛售向亚洲扩散，与联合国气候谈判未能达成政治决定并列呈现。它反映了金融风险与国际政策协调困难同时存在。</p>
+<a href="https://shows.acast.com/theeconomistmorningbriefing/episodes/cop31-collapses-russian-ship-hit-in-baltic-sea-and-mor" target="_blank" rel="noopener">阅读官方播客摘要</a>
+</div>
+<div class="panel">
+<span class="tag">The Economist · 11月21日周刊</span>
+<h3>Axis of malice：对威权国家合作加深的担忧</h3>
+<p>周刊封面主题关注俄罗斯、中国、伊朗和朝鲜之间的合作与经济联系。应把它理解为《经济学人》的国际关系分析框架，而不是正式条约或固定军事联盟的事实认定。</p>
+<a href="https://shows.acast.com/the-economist-weekly-edition/episodes" target="_blank" rel="noopener">查看官方周刊目录</a>
+</div>
+<div class="panel">
+<span class="tag">Bloomberg · 11月23日</span>
+<h3>Gold Deluge Keeps China’s $1 Trillion Trade Surplus in Check</h3>
+<p>Bloomberg称中国黄金进口额升至约2090亿美元。黄金作为金融资产也进入货物进口统计，因而会机械性压低商品贸易顺差。报道同时提醒：进口金额上涨并不代表实物进口量同步增长。</p>
+<a href="https://www.swissinfo.ch/eng/gold-deluge-keeps-chinas-$1-trillion-trade-surplus-in-check/92421298" target="_blank" rel="noopener">阅读Bloomberg授权转载</a>
+</div>
+<div class="panel">
+<span class="tag">Bloomberg · 11月23日</span>
+<h3>China’s Record State Fund Rescue Masks Deepening Investor Gloom</h3>
+<p>报道显示国家队ETF资金流入创纪录，但小盘股和融资交易仍显示压力。指数托底可以缓和局部波动，却未必立即改善市场内部风险偏好。</p>
+<a href="https://www.businesstimes.com.sg/international/chinas-record-state-fund-rescue-masks-deepening-investor-gloom" target="_blank" rel="noopener">阅读Bloomberg转载稿</a>
+</div>
+<div class="panel">
+<span class="tag">The Economist · 11月12日</span>
+<h3>Why you should expect an AI crash</h3>
+<p>此前的领导文章认为AI投资热潮可能出现回调，但技术泡沫破裂并不必然演变为系统性金融危机。它为今天的AI估值讨论提供历史视角。</p>
+<a href="https://www.economist.com/leaders/2026/11/12/why-you-should-expect-an-ai-crash" target="_blank" rel="noopener">阅读原文</a>
+</div>
+<div class="panel">
+<span class="tag">Reuters Breakingviews · 11月23日</span>
+<h3>Asia AI rout puts governments in a bind</h3>
+<p>评论强调韩国和台湾对半导体出口的依赖，并引用情景测算讨论AI硬件需求下降对经济增长的潜在影响。该数字是压力情景，不是实际损失。</p>
+<a href="https://www.reuters.com/commentary/breakingviews/asia-ai-rout-puts-governments-bind-2026-11-23/" target="_blank" rel="noopener">阅读Reuters评论</a>
+</div>
+</section>
+
+<section id="synthesis" class="story" data-topic="markets">
+<h2>06 / 综合判断：今天的市场在修复什么，又在担心什么</h2>
+<h3>第一，A股修复是结构性的</h3>
+<p>创业板明显强于上证，说明资金偏向成长和主题方向。若后续市场宽度、成交额和融资余额不能延续改善，单日反弹仍可能是风险偏好修复而非趋势反转。</p>
+<h3>第二，AI交易的焦点转向资本回报</h3>
+<p>芯片、数据中心、电力和模型公司的资本开支需要转化为可持续收入。技术能力继续进步，并不自动保证所有产业链公司的估值都合理。</p>
+<h3>第三，黄金进口改变了贸易顺差的统计外观</h3>
+<figure>
+<svg role="img" aria-labelledby="gold-title gold-desc" viewBox="0 0 760 260" xmlns="http://www.w3.org/2000/svg">
+<title id="gold-title">黄金进口如何影响商品贸易顺差统计</title>
+<desc id="gold-desc">出口减去进口形成商品贸易顺差，黄金进口增加会扩大统计中的进口额，从而机械性降低顺差；这不等同于消费需求已经全面复苏。</desc>
+<rect width="760" height="260" rx="14" fill="#fbfdfb"/>
+<rect x="25" y="70" width="185" height="105" rx="12" fill="#e5f2ee" stroke="#9ac7bb"/>
+<rect x="285" y="70" width="185" height="105" rx="12" fill="#f6f1e4" stroke="#d7c28f"/>
+<rect x="550" y="70" width="185" height="105" rx="12" fill="#f7e8e1" stroke="#d6a18e"/>
+<g font-size="19" font-weight="700" text-anchor="middle" fill="#203035"><text x="117" y="112">出口</text><text x="117" y="143">货物价值</text><text x="377" y="112">进口</text><text x="377" y="143">含黄金</text><text x="642" y="112">商品贸易</text><text x="642" y="143">顺差</text></g>
+<g stroke="#147f80" stroke-width="3" fill="none"><path d="M210 122 H275 M470 122 H540"/><path d="M265 116 l10 6 -10 6 M530 116 l10 6 -10 6"/></g>
+<text x="377" y="210" font-size="14" fill="#916c22" text-anchor="middle">黄金作为金融资产进入货物进口统计 → 顺差机械性下降</text>
+</svg>
+<figcaption>这是统计关系示意，不代表黄金进口由政府统一指令，也不能仅凭这一项推断贸易政策动机或居民资产偏好。</figcaption>
+</figure>
+<p>要判断中国内需是否改善，应同时观察进口实物量、居民消费、服务消费、价格和企业利润。进口金额可能受黄金、能源、金属和芯片价格变化影响。</p>
+</section>
+
+<section id="watch" class="story" data-topic="markets">
+<h2>07 / 接下来观察什么</h2>
+<ol>
+<li><strong>11月30日两融新规生效：</strong>融资余额、成交额、市场宽度和券商风险控制是否同步变化。</li>
+<li><strong>AI资本开支：</strong>云厂商订单、芯片交付、数据中心利用率、模型服务收入和毛利率。</li>
+<li><strong>韩国与台湾市场：</strong>半导体权重股能否止跌，政策托市能否缓解资金撤离。</li>
+<li><strong>中国内需：</strong>进口实物量、居民消费、PPI向CPI传导和黄金投资需求。</li>
+<li><strong>港股科技：</strong>美元利率、盈利预期和外资风险偏好对估值的影响。</li>
+<li><strong>神舟二十四号：</strong>以中国载人航天工程后续官方发布的发射安排为准。</li>
+</ol>
+<div class="note"><strong>研究结论：</strong>今天是一次中国成长板块的明显修复，但全球AI产业链的资本回报问题尚未得到回答。观察后续数据，比给单日行情贴上“牛市重启”或“风险解除”的标签更重要。</div>
+</section>
+
+<section id="sources" class="story" data-topic="all">
+<h2>08 / 主要来源</h2>
+<ol class="source-list">
+<li><a href="https://finance.eastmoney.com/a/202611233937488474.html" target="_blank" rel="noopener">财联社：11月23日《新闻联播》要闻16条</a>（节目要闻整理，非完整逐字稿）</li>
+<li><a href="https://www.nbd.com.cn/articles/2026-11-23/4655897.html" target="_blank" rel="noopener">每日经济新闻：A股收评</a>；<a href="https://finance.eastmoney.com/a/202611233937239827.html" target="_blank" rel="noopener">21财经：A股收盘数据</a></li>
+<li><a href="https://finance.eastmoney.com/a/202611233937279790.html" target="_blank" rel="noopener">东方财富Choice：港股收盘</a></li>
+<li><a href="https://www.sse.com.cn/lawandrules/sselawsrules2025/trade/specific/margin/c/c_20261122_10838633.shtml" target="_blank" rel="noopener">上交所：融资保证金比例调整通知</a>；<a href="https://www.szse.cn/disclosure/notice/t20261122_623985.html" target="_blank" rel="noopener">深交所通知</a></li>
+<li><a href="https://www.chinanews.com/cj/2026/11-23/10736260.shtml" target="_blank" rel="noopener">中新网：央行逆回购操作</a>；<a href="https://m.cnfin.com/yw-lb/zixun/20261123/4499248_1.html" target="_blank" rel="noopener">新华财经：货币市场日报</a></li>
+<li><a href="https://prpq.nea.gov.cn/jnyw/14930.html" target="_blank" rel="noopener">国家能源局：10月充电设施数据</a>；<a href="https://www.chinanews.com/edu/2026/11-23/10736240.shtml" target="_blank" rel="noopener">中新网：数据人才计划</a></li>
+<li><a href="https://www.swissinfo.ch/eng/us-stock-futures-rally-after-ai-rout,-havens-fall:-markets-wrap/92421262" target="_blank" rel="noopener">Bloomberg：全球市场综述</a>；<a href="https://www.swissinfo.ch/eng/gold-deluge-keeps-chinas-$1-trillion-trade-surplus-in-check/92421298" target="_blank" rel="noopener">Bloomberg：黄金进口与贸易顺差</a></li>
+<li><a href="https://shows.acast.com/theeconomistmorningbriefing/episodes/cop31-collapses-russian-ship-hit-in-baltic-sea-and-mor" target="_blank" rel="noopener">The Economist：11月23日 World in Brief</a>；<a href="https://shows.acast.com/the-economist-weekly-edition/episodes" target="_blank" rel="noopener">The Economist：11月21日周刊目录</a></li>
+<li><a href="https://www.reuters.com/commentary/breakingviews/asia-ai-rout-puts-governments-bind-2026-11-23/" target="_blank" rel="noopener">Reuters Breakingviews：亚洲AI抛售与政府政策困境</a>；<a href="https://apnews.com/article/49ba1beba78fa4ed2bd5898029f79c91" target="_blank" rel="noopener">AP：美国科技股期货反弹</a></li>
+</ol>
+</section>
+<footer>
+<p>资料截点：2026-11-23 22:08（北京时间）。国际媒体部分文章受订阅限制，按公开摘要、官方播客说明或授权转载进行有限归纳。</p>
+<p>本页为研究资料，不构成投资建议。所有市场数据均需结合原始来源、交易时段和统计口径理解。</p>
+</footer>
+</article>
+</main>
+</div>
+<script>
+(() => {
+  const buttons = [...document.querySelectorAll('[data-filter]')];
+  const stories = [...document.querySelectorAll('.story[data-topic]')];
+  const status = document.getElementById('filter-status');
+  const labels = {all:'全部内容',markets:'市场内容',policy:'政策与国内内容',global:'国际与全球内容'};
+  function activate(filter) {
+    stories.forEach(section => {
+      const topics = (section.dataset.topic || '').split(/\s+/);
+      section.hidden = filter !== 'all' && !topics.includes(filter) && !topics.includes('all');
+    });
+    buttons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.filter === filter)));
+    status.textContent = '当前显示：' + labels[filter] + '。';
+  }
+  buttons.forEach(button => button.addEventListener('click', () => activate(button.dataset.filter)));
+  activate('all');
+})();
+</script>
+</body>
+</html>

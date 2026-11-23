@@ -1,0 +1,42 @@
+name: validate-news
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements-dev.txt
+      - name: Install QA dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements-dev.txt
+      - name: Install Chromium
+        run: python -m playwright install --with-deps chromium
+      - name: Validate structured news data and source register
+        run: python scripts/validate_news.py
+      - name: Run unit tests
+        run: python -m pytest -q
+      - name: Run Olah Skill static article validation
+        run: python .agent/skills/olah-style-paper-posts/scripts/validate.py posts/2026-11-23/index.html
+      - name: Run Chromium responsive and interaction QA
+        run: python .agent/skills/olah-style-paper-posts/scripts/browser_check.py posts/2026-11-23/index.html --output artifacts/2026-11-23
+      - name: Upload browser QA evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: xm-news-browser-qa
+          path: artifacts/2026-11-23/
+          if-no-files-found: ignore
