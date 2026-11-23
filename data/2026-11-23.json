@@ -15,35 +15,110 @@
         "note": "统计范围或行情快照口径不同，保留来源差异，不合并。"
       },
       "indices": [
-        {"name": "上证指数", "close": 3538.95, "change_pct": 0.15},
-        {"name": "深证成指", "close": 10454.37, "change_pct": 1.93},
-        {"name": "创业板指", "close": 2280.20, "change_pct": 3.08},
-        {"name": "沪深300", "close": 3958.29, "change_pct": 0.09},
-        {"name": "科创50", "close": 1227.89, "change_pct": -0.26},
-        {"name": "北证50", "close": 795.38, "change_pct": 4.67}
+        {
+          "name": "上证指数",
+          "close": 3538.95,
+          "change_pct": 0.15
+        },
+        {
+          "name": "深证成指",
+          "close": 10454.37,
+          "change_pct": 1.93
+        },
+        {
+          "name": "创业板指",
+          "close": 2280.2,
+          "change_pct": 3.08
+        },
+        {
+          "name": "沪深300",
+          "close": 3958.29,
+          "change_pct": 0.09
+        },
+        {
+          "name": "科创50",
+          "close": 1227.89,
+          "change_pct": -0.26
+        },
+        {
+          "name": "北证50",
+          "close": 795.38,
+          "change_pct": 4.67
+        }
       ],
-      "strong_sectors": ["人形机器人", "AI漫剧与影视院线", "医疗服务", "自动化设备", "电机", "部分PCB/CPO", "贵金属"],
-      "weak_sectors": ["银行", "煤炭", "油气", "白酒", "部分汽车整车"]
+      "strong_sectors": [
+        "人形机器人",
+        "AI漫剧与影视院线",
+        "医疗服务",
+        "自动化设备",
+        "电机",
+        "部分PCB/CPO",
+        "贵金属"
+      ],
+      "weak_sectors": [
+        "银行",
+        "煤炭",
+        "油气",
+        "白酒",
+        "部分汽车整车"
+      ]
     },
     "hong_kong": {
       "turnover_hkd_100m": 2530.92,
       "indices": [
-        {"name": "恒生指数", "close": 22383.74, "change_pct": -0.12},
-        {"name": "恒生科技指数", "close": 3508.00, "change_pct": -0.09},
-        {"name": "恒生国企指数", "close": 7527.98, "change_pct": -0.35}
+        {
+          "name": "恒生指数",
+          "close": 22383.74,
+          "change_pct": -0.12
+        },
+        {
+          "name": "恒生科技指数",
+          "close": 3508,
+          "change_pct": -0.09
+        },
+        {
+          "name": "恒生国企指数",
+          "close": 7527.98,
+          "change_pct": -0.35
+        }
       ],
-      "leaders": ["联想集团", "舜宇光学科技", "老铺黄金"],
-      "laggards": ["理想汽车-W", "零跑汽车", "小鹏集团-W"]
+      "leaders": [
+        "联想集团",
+        "舜宇光学科技",
+        "老铺黄金"
+      ],
+      "laggards": [
+        "理想汽车-W",
+        "零跑汽车",
+        "小鹏集团-W"
+      ]
     },
     "global_context": {
       "us_futures_asia_session": [
-        {"name": "标普500期货", "change_pct": 2.2, "source_id": "S14"},
-        {"name": "纳斯达克100期货", "change_pct": 2.9, "source_id": "S14"}
+        {
+          "name": "标普500期货",
+          "change_pct": 2.2,
+          "source_id": "S14"
+        },
+        {
+          "name": "纳斯达克100期货",
+          "change_pct": 2.9,
+          "source_id": "S14"
+        }
       ],
       "previous_friday_ai_equities": [
-        {"name": "Nvidia", "change_pct": -14.0},
-        {"name": "Anthropic上市后第二交易日", "change_pct": -8.5},
-        {"name": "半导体股指标", "change_pct": -11.0}
+        {
+          "name": "Nvidia",
+          "change_pct": -14
+        },
+        {
+          "name": "Anthropic上市后第二交易日",
+          "change_pct": -8.5
+        },
+        {
+          "name": "半导体股指标",
+          "change_pct": -11
+        }
       ],
       "note": "美国期货为亚洲时段报价，不是11月23日美国现金市场收盘。"
     }
@@ -53,9 +128,9 @@
     "reverse_repo_maturity_cny_100m": 3795,
     "net_injection_cny_100m": 1200,
     "reverse_repo_rate_pct": 1.25,
-    "shibor_overnight_pct": 1.2620,
-    "shibor_7d_pct": 1.3730,
-    "usd_cny_midpoint": 6.7120,
+    "shibor_overnight_pct": 1.262,
+    "shibor_7d_pct": 1.373,
+    "usd_cny_midpoint": 6.712,
     "usd_cny_midpoint_change_bp": 11,
     "margin_financing_minimum_ratio_pct": 80,
     "previous_margin_financing_minimum_ratio_pct": 100,
@@ -65,7 +140,7 @@
     "ev_private_charging_guns_10k": 2010.8,
     "ev_charging_yoy_pct": 36.2,
     "china_ceec_demo_zone_trade_cny_100m": 522.9,
-    "china_ceec_demo_zone_trade_yoy_pct": 5.0,
+    "china_ceec_demo_zone_trade_yoy_pct": 5,
     "china_gold_import_value_usd_bn_ytd": 209,
     "gold_import_share_of_total_imports_pct_approx": 8
   },
@@ -145,7 +220,32 @@
       "access_note": "观点评论与情景估算，不是已发生的经济损失。"
     }
   ],
-  "source_ids": ["S01","S02","S03","S04","S05","S06","S07","S08","S09","S10","S11","S12","S13","S14","S15","S16","S17","S18","S19","S20","S21","S22"],
+  "source_ids": [
+    "S01",
+    "S02",
+    "S03",
+    "S04",
+    "S05",
+    "S06",
+    "S07",
+    "S08",
+    "S09",
+    "S10",
+    "S11",
+    "S12",
+    "S13",
+    "S14",
+    "S15",
+    "S16",
+    "S17",
+    "S18",
+    "S19",
+    "S20",
+    "S21",
+    "S22",
+    "S23",
+    "S24"
+  ],
   "limitations": [
     "新闻联播16条清单来自财联社整理，不是完整官方逐字稿。",
     "A股上涨家数在不同来源间存在4306只与超过4600只的口径差异。",
