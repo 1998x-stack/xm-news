@@ -1,69 +1,22 @@
-# Research and source protocol
+# Research and source protocol｜Four pillars
 
-## 1. Source hierarchy
+## Source roles
+P0: original documents, official statements, raw statistics, regulations, judgments and filings. P1: major wire services and independent reporting. P2: specialist, financial, regional, academic and think-tank sources. P3: social media and personal accounts for leads/viewpoints only. P0 is direct evidence of what an institution published, not an independent verdict on disputed claims. P1/P2 are not automatically neutral.
 
-| Tier | Source | Examples | What it can establish |
-|---|---|---|---|
-| P0 | Original primary source | CCTV programme page, government, ministry, PBOC, SAFE, NBS, NEA, SSE, SZSE, HKEX, listed-company filing | Official statements, rules, raw releases, issuer facts |
-| P1 | Independent major publisher / wire | Bloomberg, The Economist, Reuters, AP, FT | Reported events, independent context, editorial analysis |
-| P2 | Financial data provider / specialist publication | Exchange data distributors, China Securities Journal, Yicai, NBD, financial data terminals | Market close, cross-checks, specialist context |
-| P3 | Aggregator, social media, newsletter | Search mirrors, reposts, public social posts | Discovery leads only; never sole support for a material claim |
+## Search by pillar
+- Politics: CCTV/Xinwen Lianbo, People's Daily, Qiushi, Xinhua, gov.cn, MFA and other parties' official statements; Reuters/AP/AFP, BBC/FT/Economist; CNA/Nikkei/SCMP/ISEAS/East Asia Forum.
+- Finance: PBOC, SAFE, MOF, CSRC, SSE/SZSE/BSE/HKEX, issuer filings; Caixin/Yicai/21st Century; Bloomberg/FT/Reuters/WSJ/CNBC; regional market data.
+- Economy: NBS, Customs, NDRC, MOF, MIIT and provincial statistics; IMF/World Bank/OECD/WTO/UNCTAD; Reuters/AP/Bloomberg/FT/Economist/Nikkei/CNA.
+- Livelihood: MOHRSS, MCA, NHC, MOE, NHSA, MOHURD and local governments; People's Daily/Xinhua/Southern Weekly/Caixin; Reuters/AP/CNA/Straits Times/SCMP; ILO/WHO/World Bank/UNICEF/UNFPA.
 
-A high-authority source is not automatically the right source for every claim. A government release establishes what the agency announced; it does not prove that a policy has already changed private-sector behavior. An opinion column establishes the author's view, not an objective consensus.
+## Evidence ledger
+Every material claim records claim_id, source_id, URL, publisher, published_at, retrieved_at, locator, source_role, institutional_position, independence_cluster, verification, confidence, access_note, caveat and counter_evidence.
 
-## 2. Search plan
+## Independence
+Reuters republished by CNA/Straits Times remains one Reuters lineage. AP/Xinhua copies and translations are not independent sources. Multiple outlets quoting the same official notice do not independently verify interpretations beyond that notice.
 
-Search at least the following buckets and keep the query date explicit:
-1. Official Xinwen Lianbo daily page and item transcript.
-2. Major policy announcements and official data releases of the day.
-3. A-share and Hong Kong market close, breadth, turnover and sector performance.
-4. PBOC liquidity, Shibor, USD/CNY, CGB yields and relevant commodities.
-5. Global cash-market closes and futures, clearly separated by session.
-6. The Economist, Bloomberg, Reuters, AP and FT articles published in the last 24–72 hours.
-7. Relevant industry/issuer filings where an article makes a company-specific claim.
+## Social media
+Authenticate official accounts via institution websites. Capture original URL, handle, timestamp, edit state and retrieval time. Verify photos/video with reverse search, geolocation, time/weather/context and original uploader. A checkmark, follower count, repost volume or screenshot is not proof.
 
-Do not infer publication date from a URL slug alone. Verify the page's date, update time and timezone. When the article date differs from the event date, record both.
-
-## 3. Evidence ledger fields
-
-For each source:
-- `id`: stable within the report, e.g. `S01`;
-- `claim`: one concise factual proposition supported;
-- `url`: canonical source URL or clearly labeled authorized syndication;
-- `publisher`: publisher or issuing body;
-- `published_at`: timestamp/timezone if available;
-- `retrieved_at`: actual retrieval timestamp/timezone;
-- `locator`: section, paragraph, table, chart or announcement clause;
-- `status`: `verified`, `derived`, `illustrative`, `unverified`;
-- `access_note`: full text, abstract, snippet, podcast notes, syndication or paywall;
-- `limitations`: scope and conflicts.
-
-## 4. Cross-check policy
-
-- Official regulation text beats media paraphrase.
-- For an important market close, prefer exchange/index-owner data plus one independent provider.
-- If two providers disagree, preserve both values and describe their sample, timestamp or definition if known.
-- If the reason for a market move is only attributed by market participants, say "媒体/交易员将其归因于" rather than stating direct causation.
-- If a source is unavailable, do not pretend to have read it. Use an alternative and mark the original as inaccessible.
-- Search snippets may discover a source but should not be treated as full-text evidence.
-
-## 5. News selection
-
-Prioritize:
-- official policy with an identifiable instrument, responsible agency, effective date or budget;
-- new macroeconomic data that changes the base case;
-- market events with broad cross-asset or cross-sector transmission;
-- technology/industry developments with named issuers and verifiable exposure;
-- international events with direct implications for China, trade, energy, capital flows or security.
-
-Avoid filling the page with low-impact routine headlines. Keep the full programme headline list separate from the editor's top stories.
-
-## 6. Contradictions and missing information
-
-Record contradictory statements in a "source conflicts" subsection:
-- source A and source B;
-- what each actually measures;
-- likely difference in scope/time/definition;
-- which value is used in the main text and why.
-
-Use null/unknown for missing numbers. Never convert missing to zero. Never fabricate article titles, quotes, source locators, URLs, data points or publication times.
+## Editorial labels
+Use 【事实】【官方表述】【媒体观点】【分析推断】【情景】. Keep disagreements visible; do not average incompatible numbers. Search snippets are discovery aids, not proof of full-text access. Paywalled content uses public excerpts, abstracts, official podcast notes or authorized syndication only.

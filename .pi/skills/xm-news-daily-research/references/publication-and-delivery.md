@@ -1,56 +1,16 @@
-# Publication and email delivery
+# Publication and email delivery｜Four pillars
 
-## 1. Repository bundle
+## Bundle
+content/YYYY-MM-DD.md; four pillar Markdown files; data/YYYY-MM-DD.json; sources/YYYY-MM-DD.md; sections/YYYY-MM-DD/{politics,finance,economy,livelihood}/index.html; index.html; source-guide/index.html; config/source-catalog.json. Keep legacy posts/YYYY-MM-DD as finance archive.
 
-The canonical source of truth is GitHub main:
-- `content/YYYY-MM-DD.md`
-- `data/YYYY-MM-DD.json`
-- `sources/YYYY-MM-DD.md`
-- `posts/YYYY-MM-DD/index.html`
+## Build
+`python scripts/build_site.py --output dist`. Publish only dist/: portal, four latest pillar routes, date archive, source guide, machine-readable source catalog, archive, latest.json, sitemap, robots and 404. Never expose .agent/.pi, scripts, test caches, private addresses or credentials.
 
-Do not overwrite previous dates. For same-day corrections, inspect the current SHA and update the existing bundle. Keep source IDs stable within the report.
+## Routes
+`/`, `/politics/`, `/finance/`, `/economy/`, `/livelihood/`, `/issues/YYYY-MM-DD/{pillar}/`, `/source-guide/`, `/source-catalog.json`, `/archive/`, `/latest.json`.
 
-## 2. Static Pages build
+## Deployment
+GitHub Actions: validate bundle → pytest → Olah static validation for all four pages → Chromium QA for all four → build dist → upload artifact → deploy. Verify deploy head SHA, conclusion, environment URL and actual public pages. Validation success is not deployment success.
 
-Run:
-```bash
-python scripts/build_site.py --output dist
-```
-
-The build should create a curated artifact containing:
-- `index.html` (latest issue homepage)
-- `archive/index.html`
-- `posts/YYYY-MM-DD/index.html` (all available articles)
-- `404.html`
-- `robots.txt`, `sitemap.xml`, `.nojekyll`
-
-Do not publish `.agent/`, `.pi/`, credentials, test caches or source-generation scripts in the Pages artifact. The repository itself may remain public; the Pages artifact is deliberately curated.
-
-## 3. GitHub Pages deployment
-
-- Source: GitHub Actions.
-- Trigger: push to main when daily content, site builder, or deployment workflow changes; plus manual workflow dispatch.
-- Permissions: contents read, pages write, id-token write.
-- Jobs: checkout → install minimal Python → validate daily bundle → build static artifact → configure Pages → upload artifact → deploy.
-- Use the `github-pages` environment and expose the real `page_url` output.
-- A successful research CI run is not a successful Pages deployment. Verify the deploy workflow run and public URL separately.
-- If Pages is not enabled for the repository, a maintainer must select Settings → Pages → Build and deployment → Source → GitHub Actions once.
-
-Expected project URL: `https://1998x-stack.github.io/xm-news/`.
-Daily article URL: `https://1998x-stack.github.io/xm-news/posts/YYYY-MM-DD/`.
-
-## 4. Email contract
-
-Recipient: `the recipient configured privately in the automation`.
-
-Subject format: `XM News｜YYYY-MM-DD 核心新闻与市场研究`.
-
-Required body:
-1. Date and report cut-off time.
-2. Three to five key conclusions, each with a concise evidence/caveat.
-3. A-share and Hong Kong close snapshot, explicitly labeled as close/holiday/latest session.
-4. One to three important global media items with links.
-5. Material risks, conflicts and unavailable data.
-6. Latest verified Pages URL and the GitHub HTML fallback.
-
-Send only after the repository commit and deployment state have been checked. If Pages is pending/failed, state that explicitly and link to the GitHub article file. Never send a guessed URL as a verified live page.
+## Email
+Subject: XM News｜YYYY-MM-DD 四大板块每日研究. Include four pillar findings, 3–5 cross-pillar conclusions, material risks/data gaps, portal + four page links, commit, CI and Pages state. Recipient stays in private automation config. If Pages pending/failed, state it and include GitHub file links. Never claim delivery without Gmail confirmation.

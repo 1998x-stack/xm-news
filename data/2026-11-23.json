@@ -1,7 +1,7 @@
 {
   "date": "2026-11-23",
   "timezone": "Asia/Shanghai",
-  "as_of": "2026-11-23T22:08:00+08:00",
+  "as_of": "2026-11-23",
   "market_data": {
     "a_share": {
       "turnover_cny_100m": 15529,
@@ -225,6 +225,33 @@
       "summary": "AI硬件需求放缓可能通过半导体出口传导至韩国和台湾；文中GDP影响为压力情景测算。",
       "access_note": "观点评论与情景估算，不是已发生的经济损失。",
       "url": "https://www.reuters.com/commentary/breakingviews/asia-ai-rout-puts-governments-bind-2026-11-23/"
+    },
+    {
+      "source_id": "S28",
+      "publisher": "Reuters",
+      "title": "China calls on Switzerland to help resolve EU trade rift, oppose 'Taiwan independence'",
+      "published_date": "2026-11-23",
+      "summary": "报道中瑞外长会谈，突出中方对台湾议题、中欧经贸分歧和AI合作的公开诉求。",
+      "access_note": "可访问报道；主要依据中方外交部会谈摘要，不能视为双方逐字纪要。",
+      "url": "https://www.reuters.com/world/china/china-calls-switzerland-help-resolve-eu-trade-rift-oppose-taiwan-independence-2026-11-23/"
+    },
+    {
+      "source_id": "S40",
+      "publisher": "Reuters",
+      "title": "China, EU officials discuss exchange rates as central bank chief Pan urges cooperation",
+      "published_date": "2026-11-23",
+      "summary": "报道中国央行行长与欧洲央行官员讨论汇率、货币政策和经济状况，显示贸易失衡议题进入金融沟通。",
+      "access_note": "Reuters报道；具体会议材料应以央行和欧洲央行正式文本为准。",
+      "url": "https://www.reuters.com/business/finance/china-eu-officials-discuss-exchange-rates-as-central-bank-chief-pan-urges-2026-11-23/"
+    },
+    {
+      "source_id": "S46",
+      "publisher": "Financial Times",
+      "title": "China revives US private equity ties",
+      "published_date": "2026-11-23",
+      "summary": "FT公开摘要称中投公司研究恢复对美国私募股权投资，并希望在制裁或双边关系恶化时设置资金保障。",
+      "access_note": "付费文章；仅依据可见公开摘要，不声称阅读全文。",
+      "url": "https://www.ft.com/content/f6dfff44-e636-43ba-ae37-c21eeb6f2080"
     }
   ],
   "source_ids": [
@@ -252,7 +279,34 @@
     "S22",
     "S23",
     "S24",
-    "S25"
+    "S25",
+    "S26",
+    "S27",
+    "S28",
+    "S29",
+    "S30",
+    "S31",
+    "S32",
+    "S33",
+    "S34",
+    "S35",
+    "S36",
+    "S37",
+    "S38",
+    "S39",
+    "S40",
+    "S41",
+    "S42",
+    "S43",
+    "S44",
+    "S45",
+    "S46",
+    "S47",
+    "S48",
+    "S49",
+    "S50",
+    "S51",
+    "S52"
   ],
   "limitations": [
     "新闻联播16条清单来自财联社整理，不是完整官方逐字稿。",
@@ -261,24 +315,125 @@
     "部分Economist/Bloomberg内容通过公开播客说明或授权转载核验，未取得付费全文。"
   ],
   "disclaimer": "仅供信息研究，不构成投资建议。",
-  "title": "A股修复，港股观望；AI风险仍在重估",
-  "summary": "创业板指上涨3.08%，港股主要指数微跌；国内两融规则调整进入落地前窗口，全球投资者仍在重新评估AI资本开支与盈利兑现。",
-  "report_version": "2.0",
+  "title": "XM News｜政治、金融、经济、民生四大板块综合观察",
+  "summary": "中瑞战略对话呈现不同议题侧重；A股成长风格强势反弹而港股微跌；宏观数据呈现制造业较强、投资与商品消费偏弱；养老托育、平台劳动者和社保基金监管成为民生政策重点。",
+  "report_version": "3.0",
   "article_path": "posts/2026-11-23/index.html",
   "pages_url": "https://1998x-stack.github.io/xm-news/posts/2026-11-23/",
   "market_date": "2026-11-23",
   "market_session": "A股与港股收盘；美国现金市场未收盘",
   "data_quality": {
-    "status": "cross_checked_with_source_conflicts",
-    "source_count": 25,
+    "status": "four_pillar_cross_source_review",
+    "source_count": 52,
     "known_conflicts": [
-      "A股上涨家数不同来源为超过4600只与4306只，保留口径差异"
+      "A股上涨家数不同来源为超过4600只与4306只，保留口径差异",
+      "A股上涨家数存在超过4600只与4306只两种统计口径，不合并。",
+      "CNA与The Straits Times养老托育报道存在Reuters稿件转载关系，不计为独立通讯社来源。",
+      "中瑞会谈三方公开文本议题侧重不同；新闻稿不等于完整会议纪要。"
     ],
     "limitations": [
       "新闻联播16条清单来自财联社整理，不是完整官方逐字稿。",
       "A股上涨家数在不同来源间存在4306只与超过4600只的口径差异。",
       "美国期货为亚洲时段报价，美国当日现金市场在截稿时尚未收盘。",
-      "部分Economist/Bloomberg内容通过公开播客说明或授权转载核验，未取得付费全文。"
+      "部分Economist/Bloomberg内容通过公开播客说明或授权转载核验，未取得付费全文。",
+      "NBS宏观指标统计期不同：10月同比与1—10月累计同比不可混用。",
+      "FT文章仅使用可见摘要；未取得付费全文。",
+      "社保基金监督条例为征求意见稿，非已生效法规。",
+      "殡仪馆和公墓管理办法已公布但2027年3月30日起施行。",
+      "人民日报新就业群体报道为地方案例，不能推断全国覆盖率。"
     ]
+  },
+  "edition": "four_pillars",
+  "report_scope": {
+    "date": "2026-11-23",
+    "timezone": "Asia/Shanghai",
+    "as_of_note": "检索日期；未将不同来源的发布时间误作统一采集时间",
+    "four_pillars": [
+      "politics",
+      "finance",
+      "economy",
+      "livelihood"
+    ]
+  },
+  "sections": {
+    "politics": {
+      "title": "中瑞战略对话：同一场会谈的三种议程",
+      "summary": "中方、瑞方与Reuters对11月23日中瑞第五轮战略对话的公开呈现各有重点；比较经贸、台湾、人权、乌克兰和多边主义议题。",
+      "path": "sections/2026-11-23/politics/index.html",
+      "content_path": "content/2026-11-23/politics.md",
+      "source_ids": [
+        "S26",
+        "S27",
+        "S28",
+        "S29",
+        "S40",
+        "S49",
+        "S50"
+      ],
+      "confidence": "中高"
+    },
+    "finance": {
+      "title": "A股强势反弹，港股仍偏谨慎",
+      "summary": "A股成长风格明显走强，但权重指数未同步确认；港股主要指数微跌。融资保证金比例下调将于11月30日生效，理论融资空间不等于实际流入。",
+      "path": "sections/2026-11-23/finance/index.html",
+      "content_path": "content/2026-11-23/finance.md",
+      "source_ids": [
+        "S09",
+        "S10",
+        "S41",
+        "S42",
+        "S43",
+        "S44",
+        "S40",
+        "S46",
+        "S47",
+        "S48"
+      ],
+      "confidence": "中高"
+    },
+    "economy": {
+      "title": "制造业向新，内需与投资修复仍不均衡",
+      "summary": "10月高技术制造和服务生产较强，但固定资产投资、民间投资、房地产投资与商品消费偏弱；中欧贸易和汇率进入政策沟通议程。",
+      "path": "sections/2026-11-23/economy/index.html",
+      "content_path": "content/2026-11-23/economy.md",
+      "source_ids": [
+        "S35",
+        "S37",
+        "S40",
+        "S46",
+        "S28",
+        "S29",
+        "S51"
+      ],
+      "confidence": "高（官方统计）/中（机制判断）"
+    },
+    "livelihood": {
+      "title": "养老托育、平台劳动者与社保基金监管",
+      "summary": "“一老一小”服务体系方案明确2030年目标；平台劳动者权益保障、社保基金监管征求意见和殡葬服务规则更新值得持续追踪。",
+      "path": "sections/2026-11-23/livelihood/index.html",
+      "content_path": "content/2026-11-23/livelihood.md",
+      "source_ids": [
+        "S30",
+        "S31",
+        "S33",
+        "S34",
+        "S35",
+        "S36",
+        "S37",
+        "S38",
+        "S39",
+        "S52"
+      ],
+      "confidence": "高（政策文本）/中（地方案例代表性）"
+    }
+  },
+  "pages": {
+    "home": "https://1998x-stack.github.io/xm-news/",
+    "politics": "https://1998x-stack.github.io/xm-news/politics/",
+    "finance": "https://1998x-stack.github.io/xm-news/finance/",
+    "economy": "https://1998x-stack.github.io/xm-news/economy/",
+    "livelihood": "https://1998x-stack.github.io/xm-news/livelihood/",
+    "archive": "https://1998x-stack.github.io/xm-news/archive/",
+    "source_guide": "https://1998x-stack.github.io/xm-news/source-guide/"
   }
 }

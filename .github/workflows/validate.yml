@@ -32,10 +32,17 @@ jobs:
         run: python scripts/validate_news.py --date "${{ steps.report.outputs.date }}"
       - name: Run unit and site-builder tests
         run: python -m pytest -q
-      - name: Run Olah Skill static article validation
-        run: python .agent/skills/olah-style-paper-posts/scripts/validate.py "posts/${{ steps.report.outputs.date }}/index.html"
-      - name: Run Chromium responsive and interaction QA
-        run: python .agent/skills/olah-style-paper-posts/scripts/browser_check.py "posts/${{ steps.report.outputs.date }}/index.html" --output "artifacts/${{ steps.report.outputs.date }}"
+      - name: Run Olah static validation for four pillars
+        run: |
+          for section in politics finance economy livelihood; do
+            python .agent/skills/olah-style-paper-posts/scripts/validate.py "sections/${{ steps.report.outputs.date }}/${section}/index.html"
+          done
+      - name: Run Chromium QA for four pillars
+        run: |
+          mkdir -p artifacts
+          for section in politics finance economy livelihood; do
+            python .agent/skills/olah-style-paper-posts/scripts/browser_check.py "sections/${{ steps.report.outputs.date }}/${section}/index.html" --output "artifacts/${{ steps.report.outputs.date }}/${section}"
+          done
       - name: Build curated Pages artifact
         run: python scripts/build_site.py --output dist
       - name: Upload QA evidence

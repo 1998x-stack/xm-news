@@ -1,0 +1,562 @@
+{
+  "version": "1.0",
+  "updated_on": "2026-11-23",
+  "principle": "No outlet is absolutely neutral; evaluate source role, provenance, editorial form, independence and limitations.",
+  "tiers": {
+    "P0": "Primary documents and official data; direct but not independent adjudication.",
+    "P1": "Wire services and independent reporting.",
+    "P2": "Specialist, regional, academic and think-tank sources.",
+    "P3": "Social media and personal accounts for leads only."
+  },
+  "groups": [
+    {
+      "id": "cn-official",
+      "name": "中国官方与原始资料",
+      "sources": [
+        {
+          "name": "新闻联播",
+          "url": "https://tv.cctv.com/lm/xwlb/",
+          "tier": "P0",
+          "type": "official_broadcast",
+          "coverage": "政治/经济/民生",
+          "use": "用于原始证据、独立报道、专业分析或区域视角；按具体条目区分",
+          "caveat": "区分节目、文字稿和第三方整理"
+        },
+        {
+          "name": "人民日报",
+          "url": "https://paper.people.com.cn/",
+          "tier": "P0",
+          "type": "party_newspaper",
+          "coverage": "政治/经济/民生",
+          "use": "用于原始证据、独立报道、专业分析或区域视角；按具体条目区分",
+          "caveat": "评论代表机构立场"
+        },
+        {
+          "name": "求是网",
+          "url": "https://www.qstheory.cn/",
+          "tier": "P0",
+          "type": "party_theory_journal",
+          "coverage": "政治/经济",
+          "use": "用于原始证据、独立报道、专业分析或区域视角；按具体条目区分",
+          "caveat": "官方理论，不是独立调查"
+        },
+        {
+          "name": "新华社",
+          "url": "https://www.news.cn/",
+          "tier": "P0",
+          "type": "state_news_agency",
+          "coverage": "全领域",
+          "use": "用于原始证据、独立报道、专业分析或区域视角；按具体条目区分",
+          "caveat": "同稿转载只算一条来源链"
+        },
+        {
+          "name": "中国政府网",
+          "url": "https://www.gov.cn/",
+          "tier": "P0",
+          "type": "government_portal",
+          "coverage": "政治/经济/民生",
+          "use": "用于原始证据、独立报道、专业分析或区域视角；按具体条目区分",
+          "caveat": "政策发布不等于实施效果"
+        },
+        {
+          "name": "外交部",
+          "url": "https://www.mfa.gov.cn/",
+          "tier": "P0",
+          "type": "government_ministry",
+          "coverage": "政治",
+          "use": "用于原始证据、独立报道、专业分析或区域视角；按具体条目区分",
+          "caveat": "同步寻找对方官方表态"
+        },
+        {
+          "name": "国家统计局",
+          "url": "https://www.stats.gov.cn/",
+          "tier": "P0",
+          "type": "official_statistics",
+          "coverage": "经济/民生",
+          "use": "用于原始证据、独立报道、专业分析或区域视角；按具体条目区分",
+          "caveat": "核对统计期、名义实际和修订"
+        },
+        {
+          "name": "人民银行",
+          "url": "https://www.pbc.gov.cn/",
+          "tier": "P0",
+          "type": "central_bank",
+          "coverage": "金融/经济",
+          "use": "用于原始证据、独立报道、专业分析或区域视角；按具体条目区分",
+          "caveat": "区分政策、操作和市场传导"
+        },
+        {
+          "name": "外汇局",
+          "url": "https://www.safe.gov.cn/",
+          "tier": "P0",
+          "type": "financial_regulator",
+          "coverage": "金融/经济",
+          "use": "用于原始证据、独立报道、专业分析或区域视角；按具体条目区分",
+          "caveat": "区分中间价、在岸和离岸"
+        },
+        {
+          "name": "发改委",
+          "url": "https://www.ndrc.gov.cn/",
+          "tier": "P0",
+          "type": "government_ministry",
+          "coverage": "政治/经济/民生",
+          "use": "用于原始证据、独立报道、专业分析或区域视角；按具体条目区分",
+          "caveat": "区分原文、解读和执行"
+        },
+        {
+          "name": "财政部",
+          "url": "https://www.mof.gov.cn/",
+          "tier": "P0",
+          "type": "government_ministry",
+          "coverage": "经济/金融",
+          "use": "用于原始证据、独立报道、专业分析或区域视角；按具体条目区分",
+          "caveat": "区分预算、决算和专项债"
+        },
+        {
+          "name": "人社部",
+          "url": "https://www.mohrss.gov.cn/",
+          "tier": "P0",
+          "type": "government_ministry",
+          "coverage": "民生/经济",
+          "use": "用于原始证据、独立报道、专业分析或区域视角；按具体条目区分",
+          "caveat": "草案和生效法规分开"
+        },
+        {
+          "name": "民政部",
+          "url": "https://www.mca.gov.cn/",
+          "tier": "P0",
+          "type": "government_ministry",
+          "coverage": "民生",
+          "use": "用于原始证据、独立报道、专业分析或区域视角；按具体条目区分",
+          "caveat": "核对养老服务覆盖"
+        },
+        {
+          "name": "卫健委",
+          "url": "https://www.nhc.gov.cn/",
+          "tier": "P0",
+          "type": "government_ministry",
+          "coverage": "民生",
+          "use": "用于原始证据、独立报道、专业分析或区域视角；按具体条目区分",
+          "caveat": "政策不等于服务可及"
+        },
+        {
+          "name": "教育部",
+          "url": "https://www.moe.gov.cn/",
+          "tier": "P0",
+          "type": "government_ministry",
+          "coverage": "民生/经济",
+          "use": "用于原始证据、独立报道、专业分析或区域视角；按具体条目区分",
+          "caveat": "政策目标与资源供给分开"
+        },
+        {
+          "name": "上交所",
+          "url": "https://www.sse.com.cn/",
+          "tier": "P0",
+          "type": "exchange",
+          "coverage": "金融",
+          "use": "用于原始证据、独立报道、专业分析或区域视角；按具体条目区分",
+          "caveat": "正式规则和生效日期优先"
+        },
+        {
+          "name": "深交所",
+          "url": "https://www.szse.cn/",
+          "tier": "P0",
+          "type": "exchange",
+          "coverage": "金融",
+          "use": "用于原始证据、独立报道、专业分析或区域视角；按具体条目区分",
+          "caveat": "交易规则与公告"
+        },
+        {
+          "name": "北交所",
+          "url": "https://www.bse.cn/",
+          "tier": "P0",
+          "type": "exchange",
+          "coverage": "金融",
+          "use": "用于原始证据、独立报道、专业分析或区域视角；按具体条目区分",
+          "caveat": "北交所原始业务规则"
+        },
+        {
+          "name": "港交所",
+          "url": "https://www.hkex.com.hk/",
+          "tier": "P0",
+          "type": "exchange",
+          "coverage": "金融",
+          "use": "用于原始证据、独立报道、专业分析或区域视角；按具体条目区分",
+          "caveat": "港币、时段和指数定义"
+        }
+      ]
+    },
+    {
+      "id": "cn-professional",
+      "name": "国内专业媒体",
+      "sources": [
+        {
+          "name": "财新",
+          "url": "https://www.caixin.com/",
+          "tier": "P2",
+          "type": "business_media",
+          "coverage": "财经调查",
+          "use": "用于原始证据、独立报道、专业分析或区域视角；按具体条目区分",
+          "caveat": "部分付费，记录访问范围"
+        },
+        {
+          "name": "第一财经",
+          "url": "https://www.yicai.com/",
+          "tier": "P2",
+          "type": "business_media",
+          "coverage": "宏观/市场/产业",
+          "use": "用于原始证据、独立报道、专业分析或区域视角；按具体条目区分",
+          "caveat": "市场数字与交易所互证"
+        },
+        {
+          "name": "21世纪经济报道",
+          "url": "https://www.21jingji.com/",
+          "tier": "P2",
+          "type": "business_media",
+          "coverage": "金融/产业",
+          "use": "用于原始证据、独立报道、专业分析或区域视角；按具体条目区分",
+          "caveat": "注意行情快照"
+        },
+        {
+          "name": "经济观察报",
+          "url": "https://www.eeo.com.cn/",
+          "tier": "P2",
+          "type": "business_media",
+          "coverage": "企业/产业",
+          "use": "用于原始证据、独立报道、专业分析或区域视角；按具体条目区分",
+          "caveat": "企业案例不代表全行业"
+        },
+        {
+          "name": "南方周末",
+          "url": "https://www.infzm.com/",
+          "tier": "P2",
+          "type": "investigative_media",
+          "coverage": "社会调查",
+          "use": "用于原始证据、独立报道、专业分析或区域视角；按具体条目区分",
+          "caveat": "查看样本和方法"
+        },
+        {
+          "name": "澎湃新闻",
+          "url": "https://www.thepaper.cn/",
+          "tier": "P2",
+          "type": "digital_news",
+          "coverage": "时政/社会",
+          "use": "用于原始证据、独立报道、专业分析或区域视角；按具体条目区分",
+          "caveat": "重大事实回溯原始来源"
+        },
+        {
+          "name": "证券时报",
+          "url": "https://www.stcn.com/",
+          "tier": "P2",
+          "type": "financial_media",
+          "coverage": "资本市场",
+          "use": "用于原始证据、独立报道、专业分析或区域视角；按具体条目区分",
+          "caveat": "区分报道和评论"
+        }
+      ]
+    },
+    {
+      "id": "western",
+      "name": "欧美通讯社与媒体",
+      "sources": [
+        {
+          "name": "Reuters",
+          "url": "https://www.reuters.com/",
+          "tier": "P1",
+          "type": "wire_service",
+          "coverage": "全领域",
+          "use": "用于原始证据、独立报道、专业分析或区域视角；按具体条目区分",
+          "caveat": "核验匿名来源和转载关系"
+        },
+        {
+          "name": "AP",
+          "url": "https://apnews.com/",
+          "tier": "P1",
+          "type": "wire_service",
+          "coverage": "政治/社会",
+          "use": "用于原始证据、独立报道、专业分析或区域视角；按具体条目区分",
+          "caveat": "核验用户生成素材"
+        },
+        {
+          "name": "AFP",
+          "url": "https://www.afp.com/",
+          "tier": "P1",
+          "type": "wire_service",
+          "coverage": "国际突发",
+          "use": "用于原始证据、独立报道、专业分析或区域视角；按具体条目区分",
+          "caveat": "检查通讯社转载"
+        },
+        {
+          "name": "Bloomberg",
+          "url": "https://www.bloomberg.com/",
+          "tier": "P2",
+          "type": "financial_media",
+          "coverage": "金融/经济",
+          "use": "用于原始证据、独立报道、专业分析或区域视角；按具体条目区分",
+          "caveat": "付费和匿名来源需注明"
+        },
+        {
+          "name": "Financial Times",
+          "url": "https://www.ft.com/",
+          "tier": "P2",
+          "type": "financial_media",
+          "coverage": "金融/经济/政治",
+          "use": "用于原始证据、独立报道、专业分析或区域视角；按具体条目区分",
+          "caveat": "区分新闻、评论和付费全文"
+        },
+        {
+          "name": "The Economist",
+          "url": "https://www.economist.com/",
+          "tier": "P2",
+          "type": "analysis_magazine",
+          "coverage": "政治/经济",
+          "use": "用于原始证据、独立报道、专业分析或区域视角；按具体条目区分",
+          "caveat": "观点和预测不是事实"
+        },
+        {
+          "name": "Wall Street Journal",
+          "url": "https://www.wsj.com/",
+          "tier": "P2",
+          "type": "business_media",
+          "coverage": "金融/经济/政治",
+          "use": "用于原始证据、独立报道、专业分析或区域视角；按具体条目区分",
+          "caveat": "区分新闻和评论"
+        },
+        {
+          "name": "BBC",
+          "url": "https://www.bbc.com/news/",
+          "tier": "P2",
+          "type": "public_broadcaster",
+          "coverage": "政治/社会",
+          "use": "用于原始证据、独立报道、专业分析或区域视角；按具体条目区分",
+          "caveat": "补充国际视角"
+        },
+        {
+          "name": "New York Times",
+          "url": "https://www.nytimes.com/",
+          "tier": "P2",
+          "type": "newspaper",
+          "coverage": "政治/社会",
+          "use": "用于原始证据、独立报道、专业分析或区域视角；按具体条目区分",
+          "caveat": "区分报道和评论"
+        },
+        {
+          "name": "DW",
+          "url": "https://www.dw.com/",
+          "tier": "P2",
+          "type": "international_broadcaster",
+          "coverage": "欧洲/国际",
+          "use": "用于原始证据、独立报道、专业分析或区域视角；按具体条目区分",
+          "caveat": "补充欧洲视角"
+        },
+        {
+          "name": "France 24",
+          "url": "https://www.france24.com/",
+          "tier": "P2",
+          "type": "international_broadcaster",
+          "coverage": "欧洲/非洲",
+          "use": "用于原始证据、独立报道、专业分析或区域视角；按具体条目区分",
+          "caveat": "补充地区报道"
+        },
+        {
+          "name": "The Guardian",
+          "url": "https://www.theguardian.com/",
+          "tier": "P2",
+          "type": "newspaper",
+          "coverage": "政治/社会/气候",
+          "use": "用于原始证据、独立报道、专业分析或区域视角；按具体条目区分",
+          "caveat": "区分新闻和评论"
+        }
+      ]
+    },
+    {
+      "id": "regional",
+      "name": "新加坡与亚洲区域",
+      "sources": [
+        {
+          "name": "CNA",
+          "url": "https://www.channelnewsasia.com/",
+          "tier": "P2",
+          "type": "regional_broadcaster",
+          "coverage": "新加坡/东南亚",
+          "use": "用于原始证据、独立报道、专业分析或区域视角；按具体条目区分",
+          "caveat": "核查Reuters/AP转载"
+        },
+        {
+          "name": "The Straits Times",
+          "url": "https://www.straitstimes.com/",
+          "tier": "P2",
+          "type": "newspaper",
+          "coverage": "新加坡/东南亚",
+          "use": "用于原始证据、独立报道、专业分析或区域视角；按具体条目区分",
+          "caveat": "核查通讯社稿件来源"
+        },
+        {
+          "name": "Nikkei Asia",
+          "url": "https://asia.nikkei.com/",
+          "tier": "P2",
+          "type": "business_media",
+          "coverage": "亚洲产业链",
+          "use": "用于原始证据、独立报道、专业分析或区域视角；按具体条目区分",
+          "caveat": "关注日本商业视角"
+        },
+        {
+          "name": "SCMP",
+          "url": "https://www.scmp.com/",
+          "tier": "P2",
+          "type": "newspaper",
+          "coverage": "香港/中国/国际",
+          "use": "用于原始证据、独立报道、专业分析或区域视角；按具体条目区分",
+          "caveat": "记录所有权与媒体环境"
+        },
+        {
+          "name": "ISEAS",
+          "url": "https://www.iseas.edu.sg/",
+          "tier": "P2",
+          "type": "research_institute",
+          "coverage": "东南亚政策",
+          "use": "用于原始证据、独立报道、专业分析或区域视角；按具体条目区分",
+          "caveat": "研究结论不是新闻事实"
+        },
+        {
+          "name": "Fulcrum",
+          "url": "https://fulcrum.sg/",
+          "tier": "P2",
+          "type": "research_commentary",
+          "coverage": "东南亚政策评论",
+          "use": "用于原始证据、独立报道、专业分析或区域视角；按具体条目区分",
+          "caveat": "明确评论属性"
+        },
+        {
+          "name": "East Asia Forum",
+          "url": "https://eastasiaforum.org/",
+          "tier": "P2",
+          "type": "academic_policy_forum",
+          "coverage": "亚太政策",
+          "use": "用于原始证据、独立报道、专业分析或区域视角；按具体条目区分",
+          "caveat": "核查作者和论据"
+        },
+        {
+          "name": "Lowy Institute",
+          "url": "https://www.lowyinstitute.org/",
+          "tier": "P2",
+          "type": "think_tank",
+          "coverage": "外交政策",
+          "use": "用于原始证据、独立报道、专业分析或区域视角；按具体条目区分",
+          "caveat": "标注作者和机构立场"
+        },
+        {
+          "name": "The Diplomat",
+          "url": "https://thediplomat.com/",
+          "tier": "P2",
+          "type": "regional_magazine",
+          "coverage": "亚太安全",
+          "use": "用于原始证据、独立报道、专业分析或区域视角；按具体条目区分",
+          "caveat": "区分报道和投稿"
+        }
+      ]
+    },
+    {
+      "id": "multilateral",
+      "name": "国际组织与数据",
+      "sources": [
+        {
+          "name": "IMF",
+          "url": "https://www.imf.org/",
+          "tier": "P0",
+          "type": "multilateral_data",
+          "coverage": "宏观/国际收支",
+          "use": "用于原始证据、独立报道、专业分析或区域视角；按具体条目区分",
+          "caveat": "阅读模型假设"
+        },
+        {
+          "name": "World Bank",
+          "url": "https://www.worldbank.org/",
+          "tier": "P0",
+          "type": "multilateral_data",
+          "coverage": "发展/贫困/公共服务",
+          "use": "用于原始证据、独立报道、专业分析或区域视角；按具体条目区分",
+          "caveat": "核对数据年份"
+        },
+        {
+          "name": "OECD",
+          "url": "https://www.oecd.org/",
+          "tier": "P0",
+          "type": "multilateral_data",
+          "coverage": "生产率/就业/教育",
+          "use": "用于原始证据、独立报道、专业分析或区域视角；按具体条目区分",
+          "caveat": "关注成员覆盖"
+        },
+        {
+          "name": "WTO",
+          "url": "https://www.wto.org/",
+          "tier": "P0",
+          "type": "multilateral_data",
+          "coverage": "贸易",
+          "use": "用于原始证据、独立报道、专业分析或区域视角；按具体条目区分",
+          "caveat": "区分规则与争端主张"
+        },
+        {
+          "name": "ILO",
+          "url": "https://www.ilo.org/",
+          "tier": "P0",
+          "type": "multilateral_data",
+          "coverage": "劳动/就业",
+          "use": "用于原始证据、独立报道、专业分析或区域视角；按具体条目区分",
+          "caveat": "核对劳动力定义"
+        },
+        {
+          "name": "WHO",
+          "url": "https://www.who.int/",
+          "tier": "P0",
+          "type": "multilateral_data",
+          "coverage": "卫生",
+          "use": "用于原始证据、独立报道、专业分析或区域视角；按具体条目区分",
+          "caveat": "核对证据等级"
+        },
+        {
+          "name": "UN",
+          "url": "https://www.un.org/",
+          "tier": "P0",
+          "type": "multilateral_data",
+          "coverage": "人口/人道/发展",
+          "use": "用于原始证据、独立报道、专业分析或区域视角；按具体条目区分",
+          "caveat": "核对成员国报告口径"
+        },
+        {
+          "name": "BIS",
+          "url": "https://www.bis.org/",
+          "tier": "P0",
+          "type": "multilateral_data",
+          "coverage": "银行/金融",
+          "use": "用于原始证据、独立报道、专业分析或区域视角；按具体条目区分",
+          "caveat": "口径可能不同"
+        },
+        {
+          "name": "IEA",
+          "url": "https://www.iea.org/",
+          "tier": "P0",
+          "type": "multilateral_data",
+          "coverage": "能源",
+          "use": "用于原始证据、独立报道、专业分析或区域视角；按具体条目区分",
+          "caveat": "区分情景与实际"
+        }
+      ]
+    },
+    {
+      "id": "social",
+      "name": "社交媒体",
+      "sources": [
+        {
+          "name": "X / Twitter",
+          "url": "https://x.com/",
+          "tier": "P3",
+          "type": "social_platform",
+          "coverage": "政治/金融/经济/民生",
+          "use": "用于原始证据、独立报道、专业分析或区域视角；按具体条目区分",
+          "caveat": "认证不等于正确；核验身份、原帖、时间、地点和素材"
+        }
+      ]
+    }
+  ]
+}

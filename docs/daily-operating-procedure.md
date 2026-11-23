@@ -1,90 +1,45 @@
-# XM News 每日研究与发布 SOP
+# XM News 四大板块每日研究与发布 SOP
 
-版本：1.0  
-报告时区：Asia/Shanghai  
-日报目标：每日21:00完成研究、发布与邮件交付。
+版本2.0 · Asia/Shanghai · 每天21:00交付。
 
-## 1. 目标与完成定义
+## 每日交付物
+- 门户：index.html
+- 四专题：sections/YYYY-MM-DD/{politics,finance,economy,livelihood}/index.html
+- 四份正文：content/YYYY-MM-DD/{politics,finance,economy,livelihood}.md
+- 综合摘要：content/YYYY-MM-DD.md
+- 结构化数据：data/YYYY-MM-DD.json
+- 来源台账：sources/YYYY-MM-DD.md
+- 长期信源目录：docs/source-directory.md、config/source-catalog.json
+- 旧版posts/YYYY-MM-DD/index.html保留为历史金融日报。
 
-XM News 每天形成一个可复用的研究单元，而非临时聊天摘要。每一期必须具备四个互相对应的产物：
+## 执行时序
+18:30–19:00 仓库检查与议程；19:00–19:40 多源采集；19:40–20:10 四板块证据台账和交叉核验；20:10–20:30 分析、反证和风险；20:30–20:45 生成HTML/Markdown/JSON；20:45–20:55 测试和浏览器QA；20:55–21:00 提交、Pages核验和邮件。21:00后发布的重要信息不倒填已截稿报告。
 
-| 层 | 路径 | 职责 |
-|---|---|---|
-| 研究正文 | `content/YYYY-MM-DD.md` | 叙事、结论、反证和观察清单 |
-| 结构化数据 | `data/YYYY-MM-DD.json` | 可检索、可绘图、可供后续比较 |
-| 证据台账 | `sources/YYYY-MM-DD.md` | 来源、发布时间、定位、状态、限制 |
-| 可视化文章 | `posts/YYYY-MM-DD/index.html` | 面向读者的独立 HTML |
+## 四大板块
+政治：国内治理、外交、国际关系、安全、法律、监管和行政改革。
+金融：A/H股、债券、利率、汇率、央行、银行、保险、基金、金融监管和资本流动。
+经济：生产、消费、投资、贸易、房地产、财政、产业链、能源、企业和生产率。
+民生：就业、收入、住房、教育、医疗、养老、托育、社保、公共安全、社区治理和消费者权益。
 
-只有 GitHub 内容写入、校验、Pages 部署和邮件状态都被分别核验后，才能称为完整交付。
+## 多元信源
+详见 [信源目录](source-directory.md)。国内原始来源：新闻联播、人民日报、求是、新华社、中国政府网、部委、统计局、央行、交易所。欧美：Reuters、AP、AFP、Bloomberg、FT、The Economist、WSJ、BBC。区域：CNA、Straits Times、Nikkei Asia、SCMP、ISEAS、East Asia Forum、Lowy。国际组织：IMF、World Bank、OECD、WTO、ILO、WHO、UN、BIS、IEA。X/Twitter只作线索和观点。
+重大claim优先组合“原始材料 + 独立报道/数据源 + 区域/专业视角”。无法满足时说明缺口；同一通讯社转载不算独立来源。
 
-## 2. 每日时序
+## HTML要求
+每页包含核心结论、日期/截点、3–4个指标、时间线或原创SVG、事实与背景、来源比较、机制与反证、风险/限制、下一步观察和来源链接。独立可读、单一H1、语义化H2、移动端适配、键盘焦点、打印和减少动态效果样式。禁用外部JS、远程字体、分析脚本和第三方图表。
 
-建议执行窗口：
-- 19:00–19:30：新闻联播、官方公告和当日重要数据。
-- 19:30–20:00：A股/港股收盘、跨资产数据、国际媒体。
-- 20:00–20:25：证据台账、交叉核验和核心判断。
-- 20:25–20:45：Markdown、JSON、HTML 与 SVG。
-- 20:45–20:55：静态校验、单元测试、浏览器 QA。
-- 20:55–21:00：提交、Pages 部署状态确认、邮件摘要。
+## 编辑边界
+《求是》、人民日报评论作为官方思想/机构立场；付费文章只用公开摘要/授权转载/公开播客；不把草案写成生效法规，不把地方试点写成全国覆盖；不把期货当现货收盘，不把理论融资空间当实际资金流；事实、官方表述、媒体观点、推断和情景分开。
 
-这是目标工作节奏，不应为赶时间降低证据门槛；若数据仍未发布，写明缺口并发送降级状态。
-
-## 3. 七阶段执行门禁
-
-### A. 日期和市场时段
-使用北京时间确定报告日期。把日历日期、A股交易日、港股交易日、全球市场时段分别记录。美国市场尚未收盘时，只能报告期货或上一交易日现金收盘。
-
-### B. 搜索和去重
-先读取仓库现有日报、来源清单和未完成 PR。以当天日期为键，检查是否已有同日文件或报告。对旧日报做增量更正，不重复生成。
-
-### C. 事实和来源
-官方公告优先，国际媒体用于补充报道和观点。关键数字至少做一次独立交叉核验。付费文章只使用可访问摘要/播客/授权转载，不复制全文。
-
-### D. 分析和反证
-每个主要结论必须写明：观察到的事实、可能机制、支持证据、最强反证和后续验证条件。把事实、媒体观点、推断、情景分开。
-
-### E. 文章和数据
-同步生成 Markdown、JSON、来源登记和 HTML。JSON 与文章中的关键数字必须一致。HTML 采用统一编辑设计系统；每个 SVG 有标题、描述和图注。
-
-### F. QA 和部署
-运行动态日期验证、单元测试、Olah 静态校验、Chromium 浏览器检查。Pages 构建只打包公开站点文件，不暴露技能目录、脚本、测试缓存和内部配置。检查部署 workflow 的 commit SHA 和 conclusion，并访问首页与日报页。
-
-### G. 邮件交付
-收件人：以自动化任务中的私有收件人配置为准；不得将个人邮箱写入公开仓库。邮件包含3–5条核心结论、A股/港股收盘、全球媒体重点、风险和数据缺口、最新已验证 Pages 链接。Pages 未上线时明确标注 pending，附 GitHub 文件页作为备用链接。
-
-## 4. 质量评分卡
-
-| 维度 | 合格标准 |
-|---|---|
-| 来源完整度 | 重要事实均有来源ID、链接和定位 |
-| 时点准确度 | 日期、时区、盘中/收盘/期货无混淆 |
-| 市场口径 | 单位、币种、指数与成交额定义明确 |
-| 分析质量 | 结论有机制、有反证、有可验证条件 |
-| 数据一致性 | Markdown、JSON、HTML关键数字一致 |
-| 可视化质量 | 原创图示、图注、可访问性、移动端适配 |
-| 工程质量 | 测试真实执行，Pages发布有独立证据 |
-| 交付质量 | 邮件有摘要、风险、最新可访问链接 |
-
-不满足任一关键项时标记 DEGRADED/BLOCKED，不得以格式漂亮替代事实可靠。
-
-## 5. 幂等与恢复
-
-- 同一日期只有一个正式报告目录。
-- 更新已存在的当日文件前读取当前 SHA，保留已有来源和重要历史修改。
-- GitHub 写入冲突时重新读取远端，不强推。
-- CI 失败先读取日志定位原因，修复后重新验证。
-- Pages 部署成功不等于用户邮箱已送达；分别记录两个状态。
-- 邮件发送失败时记录错误并在下一轮恢复，不要重复发送同一份日报。
-- 永远不伪造 source ID、文件 hash、commit SHA、CI 状态、Pages 可访问性或邮件发送结果。
-
-## 6. 运行回执格式
-
-每次任务最终输出：
-- 日期 / 截止时间 / 市场交易日；
-- 3–5条核心结论及置信度；
-- 文件路径与 commit SHA；
-- 来源数、冲突与数据缺口；
-- 测试与浏览器 QA 结果；
-- Pages workflow run、部署结论和实际 URL；
-- 邮件发送状态与收件人；
-- 未完成事项和下一步。
+## QA与发布
+```bash
+python scripts/validate_news.py
+python -m pytest -q
+LATEST=$(python scripts/validate_news.py --print-latest-date)
+for section in politics finance economy livelihood; do
+  python .agent/skills/olah-style-paper-posts/scripts/validate.py "sections/$LATEST/$section/index.html"
+  python .agent/skills/olah-style-paper-posts/scripts/browser_check.py "sections/$LATEST/$section/index.html" --output "/tmp/xm-news-qa/$section"
+done
+python scripts/build_site.py --output dist
+```
+Pages只发布dist/。分别核验validate、deploy-pages、head SHA、部署结论和公网URL。邮件包含四板块结论、风险、门户和四专题链接、commit/CI/Pages状态。收件人保存在自动化私有配置。失败/未执行/pending/成功严格区分。

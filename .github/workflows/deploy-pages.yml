@@ -39,10 +39,17 @@ jobs:
         run: python scripts/validate_news.py --date "${{ steps.report.outputs.date }}"
       - name: Run regression tests
         run: python -m pytest -q
-      - name: Validate Olah article structure
-        run: python .agent/skills/olah-style-paper-posts/scripts/validate.py "posts/${{ steps.report.outputs.date }}/index.html"
-      - name: Run browser QA
-        run: python .agent/skills/olah-style-paper-posts/scripts/browser_check.py "posts/${{ steps.report.outputs.date }}/index.html" --output "artifacts/${{ steps.report.outputs.date }}"
+      - name: Validate Olah HTML structure for four pillars
+        run: |
+          for section in politics finance economy livelihood; do
+            python .agent/skills/olah-style-paper-posts/scripts/validate.py "sections/${{ steps.report.outputs.date }}/${section}/index.html"
+          done
+      - name: Run browser QA for four pillars
+        run: |
+          mkdir -p artifacts
+          for section in politics finance economy livelihood; do
+            python .agent/skills/olah-style-paper-posts/scripts/browser_check.py "sections/${{ steps.report.outputs.date }}/${section}/index.html" --output "artifacts/${{ steps.report.outputs.date }}/${section}"
+          done
       - name: Build curated site
         run: python scripts/build_site.py --output dist
       - name: Configure Pages

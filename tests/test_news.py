@@ -1,57 +1,68 @@
 from pathlib import Path
 import json
 import sys
+import tempfile
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
-import validate_news
 import build_site
+import validate_news
 
 
-class DailyNewsTests(unittest.TestCase):
+class XMNewsFourPillarTests(unittest.TestCase):
     def setUp(self):
         self.latest = validate_news.report_dates(ROOT)[0]
         self.data = json.loads((ROOT / f"data/{self.latest}.json").read_text(encoding="utf-8"))
 
-    def test_daily_record_has_headlines_and_sources(self):
-        self.assertGreater(len(self.data["broadcast_headlines"]), 0)
-        self.assertGreaterEqual(len(self.data["source_ids"]), 5)
-
-    def test_market_values_are_explicit_and_separate(self):
-        a_share = self.data["market_data"]["a_share"]["indices"]
-        hk = self.data["market_data"]["hong_kong"]["indices"]
-        self.assertGreaterEqual(len(a_share), 1)
-        self.assertGreaterEqual(len(hk), 1)
-        self.assertIn("change_pct", a_share[0])
-        self.assertIn("change_pct", hk[0])
-
-    def test_report_metadata_and_date(self):
+    def test_report_metadata_and_market_data(self):
         self.assertEqual(self.data["date"], self.latest)
+        self.assertEqual(self.data["timezone"], "Asia/Shanghai")
         self.assertTrue(self.data["title"])
         self.assertTrue(self.data["summary"])
-        self.assertEqual(self.data["timezone"], "Asia/Shanghai")
+        self.assertGreaterEqual(len(self.data["source_ids"]), 10)
+        self.assertGreaterEqual(len(self.data["market_data"]["a_share"]["indices"]), 1)
+        self.assertGreaterEqual(len(self.data["market_data"]["hong_kong"]["indices"]), 1)
 
-    def test_source_conflict_is_preserved_when_present(self):
-        breadth = self.data.get("market_data", {}).get("a_share", {}).get("advancers", {})
-        if breadth:
-            self.assertIn("口径", breadth.get("note", ""))
+    def test_exactly_four_independent_pillars(self):
+        expected = {"politics", "finance", "economy", "livelihood"}
+        self.assertEqual(set(self.data["sections"]), expected)
+        sources = (ROOT / f"sources/{self.latest}.md").read_text(encoding="utf-8")
+        for slug, section in self.data["sections"].items():
+            self.assertTrue((ROOT / section["path"]).is_file())
+            self.assertTrue((ROOT / section["content_path"]).is_file())
+            self.assertGreaterEqual(len(section["source_ids"]), 3)
+            for source_id in section["source_ids"]:
+                self.assertIn(source_id, sources)
+            article = (ROOT / section["path"]).read_text(encoding="utf-8")
+            self.assertIn("<h1>", article)
+            self.assertIn("<svg", article)
+            self.assertIn("来源与交叉核验", article)
+
+    def test_source_catalog_has_diverse_groups(self):
+        catalog = json.loads((ROOT / "config/source-catalog.json").read_text(encoding="utf-8"))
+        self.assertGreaterEqual(len(catalog["groups"]), 5)
+        sources = [source for group in catalog["groups"] for source in group["sources"]]
+        self.assertGreaterEqual(len(sources), 35)
+        self.assertTrue(any(source["name"] == "X / Twitter" for source in sources))
 
     def test_repository_validation(self):
         self.assertEqual(validate_news.validate(ROOT), [])
 
-    def test_site_build_is_curated_and_complete(self):
-        import tempfile
+    def test_curated_pages_build(self):
         with tempfile.TemporaryDirectory() as tmp:
-            out = Path(tmp) / "site"
-            result = build_site._write_site(ROOT, out)
+            output = Path(tmp) / "site"
+            result = build_site.write_site(ROOT, output)
             self.assertEqual(result["latest_date"], self.latest)
-            self.assertTrue((out / "index.html").is_file())
-            self.assertTrue((out / "archive/index.html").is_file())
-            self.assertTrue((out / f"posts/{self.latest}/index.html").is_file())
-            self.assertTrue((out / "sitemap.xml").is_file())
-            self.assertFalse((out / ".agent").exists())
-            self.assertFalse((out / "scripts").exists())
+            self.assertEqual(set(result["pillars"]), {"politics", "finance", "economy", "livelihood"})
+            for path in ("index.html", "archive/index.html", "source-guide/index.html", "source-catalog.json", "latest.json", "sitemap.xml"):
+                self.assertTrue((output / path).is_file(), path)
+            self.assertTrue((output / f"issues/{self.latest}/index.html").is_file())
+            for slug in ("politics", "finance", "economy", "livelihood"):
+                self.assertTrue((output / f"{slug}/index.html").is_file())
+                self.assertTrue((output / f"issues/{self.latest}/{slug}/index.html").is_file())
+            self.assertFalse((output / ".agent").exists())
+            self.assertFalse((output / "scripts").exists())
 
 
 if __name__ == "__main__":
