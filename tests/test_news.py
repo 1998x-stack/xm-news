@@ -49,6 +49,19 @@ class XMNewsFourPillarTests(unittest.TestCase):
     def test_repository_validation(self):
         self.assertEqual(validate_news.validate(ROOT), [])
 
+
+    def test_event_first_editorial_and_source_lineage(self):
+        ed = self.data["editorial"]
+        self.assertEqual(len(ed["lenses"]), 3)
+        self.assertGreaterEqual(len(ed["observations"]), 4)
+        ids = {v["id"] for v in ed["observations"]}
+        self.assertEqual(len(ids), len(ed["observations"]))
+        for event in ed["observations"]:
+            self.assertIn(event["pillar"], {"politics", "finance", "economy", "livelihood"})
+            self.assertTrue(event["source_ids"])
+            self.assertTrue(event["limitation"])
+            self.assertTrue(set(event["source_ids"]).issubset(self.data["source_ids"]))
+
     def test_curated_pages_build(self):
         with tempfile.TemporaryDirectory() as tmp:
             output = Path(tmp) / "site"
@@ -62,6 +75,23 @@ class XMNewsFourPillarTests(unittest.TestCase):
                 self.assertTrue((output / f"{slug}/index.html").is_file())
                 self.assertTrue((output / f"issues/{self.latest}/{slug}/index.html").is_file())
             self.assertFalse((output / ".agent").exists())
+            self.assertTrue((output / "assets/site.css").is_file())
+            self.assertTrue((output / "assets/filters.js").is_file())
+            self.assertTrue((output / "days.json").is_file())
+            homepage = (output / "index.html").read_text(encoding="utf-8")
+            self.assertIn('id="date-filter"', homepage)
+            self.assertIn('id="year-filter"', homepage)
+            self.assertIn('id="month-filter"', homepage)
+            self.assertIn(f'issues/{self.latest}/', homepage)
+            day_page = (output / f"issues/{self.latest}/index.html").read_text(encoding="utf-8")
+            self.assertIn("同一天，三个观察角度", day_page)
+            self.assertIn("当天最值得关注的事件", day_page)
+            self.assertIn("四个领域，深入阅读", day_page)
+            self.assertIn("S53", day_page)
+            self.assertIn("S56", day_page)
+            for slug in ("politics", "finance", "economy", "livelihood"):
+                self.assertIn(f'href="{slug}/"', day_page)
+
             self.assertFalse((output / "scripts").exists())
 
 

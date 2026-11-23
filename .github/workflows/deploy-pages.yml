@@ -52,6 +52,8 @@ jobs:
           done
       - name: Build curated site
         run: python scripts/build_site.py --output dist
+      - name: Verify date-first homepage, filtering, day hub and four detail routes
+        run: python scripts/browser_site_check.py --site dist --output artifacts/site
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload Pages artifact

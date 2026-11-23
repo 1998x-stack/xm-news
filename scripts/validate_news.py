@@ -87,7 +87,7 @@ def validate(root=ROOT, selected_date=None):
     if data.get("timezone") != "Asia/Shanghai": errors.append("timezone must be Asia/Shanghai")
     if not data.get("as_of"): errors.append("missing as_of cut-off")
     if not data.get("title") or not data.get("summary"): errors.append("title/summary missing")
-    if not data.get("broadcast_headlines"): errors.append("broadcast headlines missing")
+    # CCTV broadcast is an optional candidate source, never a prerequisite for a daily issue.
     source_ids = data.get("source_ids", [])
     if len(source_ids) < 10 or len(source_ids) != len(set(source_ids)): errors.append("source IDs missing or duplicated")
     market = data.get("market_data", {})
@@ -101,6 +101,30 @@ def validate(root=ROOT, selected_date=None):
     for sid in source_ids:
         if sid not in sources: errors.append(f"source ID missing from register: {sid}")
     sections = data.get("sections") or {}
+    if sections:
+        editorial = data.get("editorial") or {}
+        lenses = editorial.get("lenses") or []
+        observations = editorial.get("observations") or []
+        if len(lenses) != 3:
+            errors.append("event-driven issue requires three explicit region lenses")
+        if len(observations) < 4:
+            errors.append("event-driven issue requires at least four selected observations")
+        seen_event_ids = set()
+        for observation in observations:
+            event_id = observation.get("id")
+            if not event_id or event_id in seen_event_ids:
+                errors.append(f"editorial event missing/duplicate id: {event_id}")
+            seen_event_ids.add(event_id)
+            if observation.get("pillar") not in PILLARS:
+                errors.append(f"event {event_id} has invalid pillar")
+            event_ids = observation.get("source_ids") or []
+            if not event_ids:
+                errors.append(f"event {event_id} missing evidence source IDs")
+            for source_id in event_ids:
+                if source_id not in source_ids:
+                    errors.append(f"event {event_id} uses unregistered source: {source_id}")
+            if not observation.get("limitation"):
+                errors.append(f"event {event_id} must state verification limitations")
     if legacy_html.is_file():
         check_html(legacy_html, "legacy finance article", errors, minimum_links=6, require_focus=False)
     elif not sections:

@@ -8,6 +8,7 @@ import re
 import shutil
 from datetime import date
 from pathlib import Path
+from site_views import render_home, render_issue
 
 ROOT = Path(__file__).resolve().parents[1]
 SITE_URL = "https://1998x-stack.github.io/xm-news"
@@ -44,7 +45,7 @@ def read_reports(root: Path) -> list[dict]:
                     raise FileNotFoundError(section["path"])
                 if not safe_path(root, section["content_path"]).is_file():
                     raise FileNotFoundError(section["content_path"])
-        reports.append({"date": path.stem, "title": data.get("title", path.stem), "summary": data.get("summary", ""), "sections": sections})
+        reports.append({"date": path.stem, "title": data.get("title", path.stem), "summary": data.get("summary", ""), "sections": sections, "data": data})
     if not reports:
         raise ValueError("no dated reports found")
     return sorted(reports, key=lambda x: x["date"], reverse=True)
@@ -69,14 +70,19 @@ def archive_page(reports: list[dict]) -> str:
 
 def write_site(root: Path, output: Path) -> dict:
     reports = read_reports(root)
-    latest = reports[0]
+    latest = next((r for r in reports if r['sections']), reports[0])
     for required in (root / "index.html", root / "source-guide" / "index.html", root / "config" / "source-catalog.json"):
         if not required.is_file():
             raise FileNotFoundError(required)
     output.mkdir(parents=True, exist_ok=True)
-    shutil.copy2(root / "index.html", output / "index.html")
+    (output / "index.html").write_text(render_home(reports), encoding="utf-8")
+    assets = output / "assets"
+    assets.mkdir(parents=True, exist_ok=True)
+    for name in ("site.css", "filters.js"):
+        shutil.copy2(root / "assets" / name, assets / name)
     urls = [f"{SITE_URL}/", f"{SITE_URL}/archive/", f"{SITE_URL}/source-guide/", f"{SITE_URL}/source-catalog.json"]
     urls += [f"{SITE_URL}/{slug}/" for slug in PILLARS]
+    urls.append(f"{SITE_URL}/days.json")
     for report in reports:
         day = report["date"]
         legacy_source = root / "posts" / day / "index.html"
@@ -88,7 +94,7 @@ def write_site(root: Path, output: Path) -> dict:
         if report["sections"]:
             issue = output / "issues" / day
             issue.mkdir(parents=True, exist_ok=True)
-            (issue / "index.html").write_text(issue_index(report), encoding="utf-8")
+            (issue / "index.html").write_text(render_issue(report, reports), encoding="utf-8")
             urls.append(f"{SITE_URL}/issues/{day}/")
             for slug, section in report["sections"].items():
                 dest = issue / slug
@@ -100,10 +106,12 @@ def write_site(root: Path, output: Path) -> dict:
                     current.mkdir(parents=True, exist_ok=True)
                     shutil.copy2(safe_path(root, section["path"]), current / "index.html")
     (output / "archive").mkdir(parents=True, exist_ok=True)
-    (output / "archive" / "index.html").write_text(archive_page(reports), encoding="utf-8")
+    (output / "archive" / "index.html").write_text(render_home(reports, archive=True), encoding="utf-8")
     (output / "source-guide").mkdir(parents=True, exist_ok=True)
     shutil.copy2(root / "source-guide" / "index.html", output / "source-guide" / "index.html")
     shutil.copy2(root / "config" / "source-catalog.json", output / "source-catalog.json")
+    day_index = [{"date": r["date"], "four_pillars": bool(r["sections"]), "url": f"{SITE_URL}/issues/{r['date']}/" if r["sections"] else f"{SITE_URL}/posts/{r['date']}/"} for r in reports]
+    (output / "days.json").write_text(json.dumps(day_index, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     (output / ".nojekyll").write_text("", encoding="utf-8")
     (output / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}/sitemap.xml\n", encoding="utf-8")
     (output / "404.html").write_text('<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>404｜XM News</title><body><h1>页面不存在</h1><a href="./">返回首页</a></body></html>', encoding="utf-8")
