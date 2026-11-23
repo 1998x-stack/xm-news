@@ -14,11 +14,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -39,12 +36,12 @@ jobs:
         run: python scripts/validate_news.py --date "${{ steps.report.outputs.date }}"
       - name: Run regression tests
         run: python -m pytest -q
-      - name: Validate Olah HTML structure for four pillars
+      - name: Validate four Olah HTML articles
         run: |
           for section in politics finance economy livelihood; do
             python .agent/skills/olah-style-paper-posts/scripts/validate.py "sections/${{ steps.report.outputs.date }}/${section}/index.html"
           done
-      - name: Run browser QA for four pillars
+      - name: Run Chromium QA for four articles
         run: |
           mkdir -p artifacts
           for section in politics finance economy livelihood; do
@@ -52,7 +49,7 @@ jobs:
           done
       - name: Build curated site
         run: python scripts/build_site.py --output dist
-      - name: Verify date-first homepage, filtering, day hub and four detail routes
+      - name: Verify daily home, date filtering and dated links in Chromium
         run: python scripts/browser_site_check.py --site dist --output artifacts/site
       - name: Configure Pages
         uses: actions/configure-pages@v5
@@ -60,9 +57,6 @@ jobs:
         uses: actions/upload-pages-artifact@v4
         with:
           path: dist
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
       - name: Upload browser QA evidence
         if: always()
         uses: actions/upload-artifact@v4
@@ -70,3 +64,14 @@ jobs:
           name: xm-news-pages-qa
           path: artifacts/
           if-no-files-found: ignore
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages after build job finalizes artifact
+        id: deployment
+        uses: actions/deploy-pages@v4
