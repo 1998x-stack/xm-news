@@ -76,7 +76,7 @@ def validate(root=ROOT, selected_date=None):
     legacy_html = root / "posts" / day / "index.html"
     legacy_md = root / "content" / f"{day}.md"
     source_path = root / "sources" / f"{day}.md"
-    for path in (data_path, legacy_html, legacy_md, source_path):
+    for path in (data_path, legacy_md, source_path):
         if not path.is_file(): errors.append(f"missing required file: {path.relative_to(root)}")
     if errors: return errors
     try:
@@ -100,9 +100,11 @@ def validate(root=ROOT, selected_date=None):
     if len(re.findall(r"https?://[^)\s]+", sources)) < 10: errors.append("source register needs at least 10 linked sources")
     for sid in source_ids:
         if sid not in sources: errors.append(f"source ID missing from register: {sid}")
-    check_html(legacy_html, "legacy finance article", errors, minimum_links=6, require_focus=False)
-
     sections = data.get("sections") or {}
+    if legacy_html.is_file():
+        check_html(legacy_html, "legacy finance article", errors, minimum_links=6, require_focus=False)
+    elif not sections:
+        errors.append("non-pillar legacy report is missing its HTML article")
     if sections:
         if set(sections) != PILLARS: errors.append(f"expected four pillars, found {sorted(sections)}")
         for slug in sorted(PILLARS & set(sections)):

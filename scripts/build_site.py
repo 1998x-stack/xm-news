@@ -30,11 +30,12 @@ def read_reports(root: Path) -> list[dict]:
         data = json.loads(path.read_text(encoding="utf-8"))
         if data.get("date") != path.stem:
             raise ValueError(f"date mismatch in {path}")
-        if not (root / "posts" / path.stem / "index.html").is_file():
-            raise FileNotFoundError(f"legacy article missing: {path.stem}")
+        sections = data.get("sections") or {}
+        legacy_article = root / "posts" / path.stem / "index.html"
+        if not sections and not legacy_article.is_file():
+            raise FileNotFoundError(f"legacy article missing for non-pillar report: {path.stem}")
         if not (root / "content" / f"{path.stem}.md").is_file():
             raise FileNotFoundError(f"executive summary missing: {path.stem}")
-        sections = data.get("sections") or {}
         if sections:
             if set(sections) != set(PILLARS):
                 raise ValueError(f"{path.stem} must contain exactly four pillars")
@@ -78,10 +79,12 @@ def write_site(root: Path, output: Path) -> dict:
     urls += [f"{SITE_URL}/{slug}/" for slug in PILLARS]
     for report in reports:
         day = report["date"]
-        old = output / "posts" / day
-        old.mkdir(parents=True, exist_ok=True)
-        shutil.copy2(root / "posts" / day / "index.html", old / "index.html")
-        urls.append(f"{SITE_URL}/posts/{day}/")
+        legacy_source = root / "posts" / day / "index.html"
+        if legacy_source.is_file():
+            old = output / "posts" / day
+            old.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(legacy_source, old / "index.html")
+            urls.append(f"{SITE_URL}/posts/{day}/")
         if report["sections"]:
             issue = output / "issues" / day
             issue.mkdir(parents=True, exist_ok=True)
