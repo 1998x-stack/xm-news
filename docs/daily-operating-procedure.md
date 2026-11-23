@@ -1,45 +1,31 @@
-# XM News 四大板块每日研究与发布 SOP
+# XM News 四大板块每日事件研究 SOP v4.0
 
-版本2.0 · Asia/Shanghai · 每天21:00交付。
+## 目标
+不是从《新闻联播》里截取四类要闻，而是建立“同一天中国、欧美、新加坡和亚洲分别发生/注意到什么重要事情”的**可验证事件索引**。发布路径：每日首页（可时间过滤） → 某日Hub（跨地区视野+四栏目） → 该日的四个独立专题。
 
-## 每日交付物
-- 门户：index.html
-- 四专题：sections/YYYY-MM-DD/{politics,finance,economy,livelihood}/index.html
-- 四份正文：content/YYYY-MM-DD/{politics,finance,economy,livelihood}.md
-- 综合摘要：content/YYYY-MM-DD.md
-- 结构化数据：data/YYYY-MM-DD.json
-- 来源台账：sources/YYYY-MM-DD.md
-- 长期信源目录：docs/source-directory.md、config/source-catalog.json
-- 旧版posts/YYYY-MM-DD/index.html保留为历史金融日报。
+## 每日执行顺序（北京时间21:00计划内）
+1. **检查**：读取仓库main、AGENTS.md、SKILL、开放PR、最新日期、GitHub Actions、Pages和Gmail Sent，固定D和RUN_KEY，避免重复建档/邮件；若当日已完整，先核验与补缺。
+2. **四路发现**：中国原始官方/专业媒体；欧美通讯社和金融/社会媒体；新加坡政府和CNA、Straits Times、ISEAS及亚洲其他地区；国际组织和经过身份/原帖核验的社交平台线索。记录检索范围，不规定源国别比例或《新闻联播》权重。
+3. **事件归并**：从候选文章抽取事件（what/when/where/who），合并同一事件多篇报道，识别通讯社转载和同一政府稿源；建立 \`independence_cluster\`。
+4. **重要性判断**：公共影响、跨境效应、产业与社会重要性、报道新颖性、可验证程度、反向信息；筛选5—10个最有价值事件（数量是编辑建议非硬配额）。
+5. **事实核验**：各方原始声明/原始数据+独立调查/报道+区域或学术反证，争议不强制达成虚假“中立”；对事件源IDs、发布时间/检索时间、位置、证据可信度、冲突及付费墙作台账。
+6. **区域观察**：在当日 \`editorial.lenses\` 分别记录中国、欧美、新加坡/亚洲实际找到的材料与不同关注点；若无相关且核实的信息明确标注缺口，切忌伪造来源或捏造对立论点。
+7. **四大栏目**：给每个事件分配primary pillar并适当交叉链接，写四份深入解释（事实、机制、各方观察、反证、风险、后续验证）。
+8. **每日文件**：\`data/D.json\`、\`sources/D.md\`、\`content/D.md\`、四份\`content/D/{pillar}.md\`、四份\`sections/D/{pillar}/index.html\`。旧版posts只归档，不能取代新入口。
+9. **站点构建**：\`scripts/build_site.py\` 自动把所有日期排序渲染到根首页及/archive/，提供精确日期/年/月筛选；生成\`/issues/D/\`展示3个地区视角、事件比较、SVG研究路径、四模块卡；四个专题归档\`/issues/D/{pillar}/\`；最新模块兼容路由保留。
+10. **真实测试**：Python数据/证据校验、pytest、四页Olah静态校验、Chromium响应式与交互测试；确认日期过滤无JS基本可用、档案链接对应日期、无外部依赖和敏感资产。构建dist。
+11. **发布**：向xm-news当前main安全提交，核验validate-news和deploy-pages工作流head SHA、结论与Pages实际新内容。不假定workflow存在即上线。
+12. **邮件**：经授权Gmail检查Sent防重复，向既定收件人报告当日3—5条核心发现（四栏目至少各一条）、来源争议、数据限制、首页及\`/issues/D/\`和四个\`/issues/D/{pillar}/\`链接、commit/CI/Pages状态。
 
-## 执行时序
-18:30–19:00 仓库检查与议程；19:00–19:40 多源采集；19:40–20:10 四板块证据台账和交叉核验；20:10–20:30 分析、反证和风险；20:30–20:45 生成HTML/Markdown/JSON；20:45–20:55 测试和浏览器QA；20:55–21:00 提交、Pages核验和邮件。21:00后发布的重要信息不倒填已截稿报告。
+## 权限和恢复
+只可更新xm-news与原有XM News任务。不要新建第二个定时任务，不修改cron-news或xm-posts。GitHub文件更新读取远端最新SHA、不强推。失效时报告PENDING/FAILED/NOT_RUN，不伪造部署或邮件状态。每天凌晨或上午运行只能作为PRELIMINARY/核验已完成日期，不能提前制造当天收盘和晚间新闻。
 
-## 四大板块
-政治：国内治理、外交、国际关系、安全、法律、监管和行政改革。
-金融：A/H股、债券、利率、汇率、央行、银行、保险、基金、金融监管和资本流动。
-经济：生产、消费、投资、贸易、房地产、财政、产业链、能源、企业和生产率。
-民生：就业、收入、住房、教育、医疗、养老、托育、社保、公共安全、社区治理和消费者权益。
+## 文章标准
+借鉴仓库vendored Olah叙事和SVG技术：单H1、分层H2、3—4个真实关键指标/事实、原创SVG（title/desc/figcaption）、有来源ID的对照表、反证与不确定性、下一次验证标准。4份独立页面，手机/键盘/打印可读；不用外部JavaScript、远程字体、第三方图库或版权不明的媒体图片。
 
-## 多元信源
-详见 [信源目录](source-directory.md)。国内原始来源：新闻联播、人民日报、求是、新华社、中国政府网、部委、统计局、央行、交易所。欧美：Reuters、AP、AFP、Bloomberg、FT、The Economist、WSJ、BBC。区域：CNA、Straits Times、Nikkei Asia、SCMP、ISEAS、East Asia Forum、Lowy。国际组织：IMF、World Bank、OECD、WTO、ILO、WHO、UN、BIS、IEA。X/Twitter只作线索和观点。
-重大claim优先组合“原始材料 + 独立报道/数据源 + 区域/专业视角”。无法满足时说明缺口；同一通讯社转载不算独立来源。
-
-## HTML要求
-每页包含核心结论、日期/截点、3–4个指标、时间线或原创SVG、事实与背景、来源比较、机制与反证、风险/限制、下一步观察和来源链接。独立可读、单一H1、语义化H2、移动端适配、键盘焦点、打印和减少动态效果样式。禁用外部JS、远程字体、分析脚本和第三方图表。
-
-## 编辑边界
-《求是》、人民日报评论作为官方思想/机构立场；付费文章只用公开摘要/授权转载/公开播客；不把草案写成生效法规，不把地方试点写成全国覆盖；不把期货当现货收盘，不把理论融资空间当实际资金流；事实、官方表述、媒体观点、推断和情景分开。
-
-## QA与发布
-```bash
-python scripts/validate_news.py
-python -m pytest -q
-LATEST=$(python scripts/validate_news.py --print-latest-date)
-for section in politics finance economy livelihood; do
-  python .agent/skills/olah-style-paper-posts/scripts/validate.py "sections/$LATEST/$section/index.html"
-  python .agent/skills/olah-style-paper-posts/scripts/browser_check.py "sections/$LATEST/$section/index.html" --output "/tmp/xm-news-qa/$section"
-done
-python scripts/build_site.py --output dist
-```
-Pages只发布dist/。分别核验validate、deploy-pages、head SHA、部署结论和公网URL。邮件包含四板块结论、风险、门户和四专题链接、commit/CI/Pages状态。收件人保存在自动化私有配置。失败/未执行/pending/成功严格区分。
+## 关键缺陷防回归
+- 《新闻联播》要闻字段可不存在；不能因为没有节目摘要而使日报报错。
+- 首页必须由全部日期JSON生成，不能只复制手工静态的四板块首页。
+- 日期Hub必须是真实可导航的一层；不能直接从日期卡跳到金融文章。
+- 所谓“中立”必须表述为不同机构和地区视角；媒体不应按国家简单决定可信度。
+- 转载同源不计重复核验。经济数据不能按发布日冒充统计所属月；市场“收盘”不得混用期货/盘中。

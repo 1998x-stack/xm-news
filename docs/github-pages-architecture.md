@@ -1,36 +1,46 @@
-# XM News GitHub Pages 四大板块架构
+# XM News Date-First Pages Architecture
 
-源仓库按日期保存四个独立专题；构建器将最新日期复制到稳定根路由，并把每期专题归档到issues/YYYY-MM-DD。
+## Reader route
+\`\`\`text
+/                                 home: all daily issues, filter by exact date/year/month
+└── /issues/YYYY-MM-DD/            day hub: core events + China/West/Singapore/Asia lenses
+    ├── politics/                 political governance/diplomacy
+    ├── finance/                  financial markets/monetary policy
+    ├── economy/                  macroeconomics/industry/trade
+    └── livelihood/               public services/living conditions
+\`\`\`
+All nested URLs are immutable by date. /politics/, /finance/, /economy/, /livelihood/ are latest aliases for compatibility. /posts/YYYY-MM-DD/ retains legacy finance pages. /archive/ mirrors the complete date chronology.
 
-```text
-GitHub main
-├── index.html
-├── sections/YYYY-MM-DD/{politics,finance,economy,livelihood}/index.html
-├── content/YYYY-MM-DD/{four pillar markdown}.md
-├── data/YYYY-MM-DD.json
-├── sources/YYYY-MM-DD.md
-├── docs/source-directory.md
-├── config/source-catalog.json
-└── scripts/build_site.py
-       ↓ validation + pytest + Olah static QA + Chromium QA
-dist/
-├── index.html
-├── politics/index.html
-├── finance/index.html
-├── economy/index.html
-├── livelihood/index.html
-├── issues/YYYY-MM-DD/{index.html,pillar/index.html}
-├── source-guide/index.html
-├── source-catalog.json
-├── archive/index.html
-├── latest.json / sitemap.xml / robots.txt / 404.html
-└── posts/YYYY-MM-DD/index.html (legacy finance archive)
-       ↓
-GitHub Pages Actions
-```
+## Build inputs vs generated outputs
+\`\`\`text
+data/YYYY-MM-DD.json + editorial.lenses + editorial.observations
+sources/YYYY-MM-DD.md       content/YYYY-MM-DD.md
+sections/YYYY-MM-DD/{pillar}/index.html
+               │
+               ▼
+         build_site.py + site_views.py
+           ├─ all dates from data/
+           ├─ static date cards and time filters
+           ├─ date hub and regional source lenses
+           ├─ four pillar links scoped to the same date
+           └─ dist/ only
+               │
+               ▼
+GitHub Pages: home / issues / aliases / archive / days.json / source-guide
+\`\`\`
 
-## 路由
-`/`；`/politics/`；`/finance/`；`/economy/`；`/livelihood/`；`/issues/YYYY-MM-DD/`；`/issues/YYYY-MM-DD/{pillar}/`；`/source-guide/`；`/source-catalog.json`；`/archive/`；`/latest.json`。
+## Detailed outputs
+- dist/index.html: latest complete day feature, number of archived dates, cards ordered newest→oldest; local assets/filters.js enhances exact day/year/month inputs without hiding baseline HTML when JS is disabled.
+- dist/days.json: array of {date, four_pillars, url}, same ordering as cards.
+- dist/issues/D/index.html: day lead, material as-of, three grounded region views, curated event cards mapped to evidence IDs, accessible conceptual SVG, four module cards, caveats and archive navigation.
+- dist/issues/D/{pillar}/index.html: dated article; navigation stays within D.
+- dist/assets/site.css and filters.js: local, project-specific, no CDN, no sensitive settings.
+- dist/latest.json: current complete report and latest stable routes.
+- dist/archive/index.html: complete history with date filters.
+- dist/source-guide/ and source-catalog.json: methodology and structured registry.
 
-## 安全
-Pages只上传dist/；不发布.agent/.pi、脚本、测试缓存、个人邮箱、API key和内部配置。页面为自包含HTML/CSS/SVG，不依赖远程字体、外部JS、分析服务或第三方图表API。
+## Security and validity
+Only dist/ is uploaded. Do not expose .agent/.pi, email recipients, keys, test caches or GitHub action credentials. Data inserted in HTML must be escaped; URLs are obtained from trusted repository structure rather than unverified user-supplied paths. For new reports, schema gate requires 3 real-source lenses, a meaningful set of verified observations, four sections and complete sources.
+
+## CI
+Run validate-news, pytest, Olah static validation and Chromium QA for four section HTMLs, build dist, then assert date hub/home page and links. Pages workflow head SHA and deployment result must match the commit. A successful deployment action still requires checking public URLs if a browser is accessible.

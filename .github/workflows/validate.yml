@@ -45,6 +45,8 @@ jobs:
           done
       - name: Build curated Pages artifact
         run: python scripts/build_site.py --output dist
+      - name: Verify date-first homepage, filtering, day hub and four detail routes
+        run: python scripts/browser_site_check.py --site dist --output artifacts/site
       - name: Upload QA evidence
         if: always()
         uses: actions/upload-artifact@v4
