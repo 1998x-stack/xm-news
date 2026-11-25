@@ -87,8 +87,11 @@ class XMNewsFourPillarTests(unittest.TestCase):
             self.assertIn("同一天，三个观察角度", day_page)
             self.assertIn("当天最值得关注的事件", day_page)
             self.assertIn("四个领域，深入阅读", day_page)
-            self.assertIn("S53", day_page)
-            self.assertIn("S56", day_page)
+            # Daily IDs are allocated afresh; assert current event evidence rather than historical fixed IDs.
+            for observation in self.data["editorial"]["observations"][:12]:
+                for source_id in observation["source_ids"]:
+                    self.assertIn(source_id, day_page)
+            self.assertGreaterEqual(len(self.data["editorial"]["observations"]), 4)
             for slug in ("politics", "finance", "economy", "livelihood"):
                 self.assertIn(f'href="{slug}/"', day_page)
 
