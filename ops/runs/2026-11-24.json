@@ -10,7 +10,7 @@
     "CONTENT_BUILT": "BUILT",
     "HTML_BUILT": "BUILT",
     "TEST_PASSED": "NOT_RUN",
-    "COMMITTED": "CHECKPOINT_BRANCH_ONLY",
+    "COMMITTED": "CHECKPOINT_PR_OPEN",
     "DEPLOYED": "NOT_RUN",
     "EMAIL_SENT": "NOT_SENT"
   },
@@ -25,12 +25,14 @@
     "sections/2026-11-24/livelihood/index.html",
     "data/2026-11-24.json",
     "sources/2026-11-24.md",
-    "content/2026-11-24.md"
+    "content/2026-11-24.md",
+    "ops/runs/2026-11-24.json"
   ],
   "base_sha": "d2434035c86eea67d1e4f66c394433c273d91634",
   "attempts": 1,
   "last_error": "Local container DNS could not resolve github.com; CI fallback required. Public Pages inaccessible from web fetch.",
-  "next_action": "Run repository validation and browser CI against checkpoint PR; resolve failures before main merge. Verify production Pages and Sent before final email.",
+  "next_action": "PR #2: run validation at latest PR SHA, then merge only if all gates pass; verify Pages and Sent before email. Date-independent test corrected; original CI superseded by this revision.",
   "updated_at": "2026-11-25",
-  "status": "PENDING"
+  "status": "PENDING",
+  "pr_number": 2
 }
