@@ -1,0 +1,36 @@
+{
+  "run_key": "XM-NEWS-2026-11-24",
+  "target_date": "2026-11-24",
+  "as_of": "2026-11-24T23:59:59+08:00",
+  "stage": "HTML_BUILT",
+  "stage_status": {
+    "INIT": "SUCCESS",
+    "RESEARCH": "SUCCESS_WITH_LIMITATIONS",
+    "EVIDENCE_VERIFIED": "PARTIAL_ACCESS_LIMITATIONS",
+    "CONTENT_BUILT": "BUILT",
+    "HTML_BUILT": "BUILT",
+    "TEST_PASSED": "NOT_RUN",
+    "COMMITTED": "CHECKPOINT_BRANCH_ONLY",
+    "DEPLOYED": "NOT_RUN",
+    "EMAIL_SENT": "NOT_SENT"
+  },
+  "artifact_paths": [
+    "content/2026-11-24/politics.md",
+    "sections/2026-11-24/politics/index.html",
+    "content/2026-11-24/finance.md",
+    "sections/2026-11-24/finance/index.html",
+    "content/2026-11-24/economy.md",
+    "sections/2026-11-24/economy/index.html",
+    "content/2026-11-24/livelihood.md",
+    "sections/2026-11-24/livelihood/index.html",
+    "data/2026-11-24.json",
+    "sources/2026-11-24.md",
+    "content/2026-11-24.md"
+  ],
+  "base_sha": "d2434035c86eea67d1e4f66c394433c273d91634",
+  "attempts": 1,
+  "last_error": "Local container DNS could not resolve github.com; CI fallback required. Public Pages inaccessible from web fetch.",
+  "next_action": "Run repository validation and browser CI against checkpoint PR; resolve failures before main merge. Verify production Pages and Sent before final email.",
+  "updated_at": "2026-11-25",
+  "status": "PENDING"
+}

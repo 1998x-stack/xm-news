@@ -1,0 +1,346 @@
+{
+  "date": "2026-11-24",
+  "timezone": "Asia/Shanghai",
+  "as_of": "2026-11-24T23:59:59+08:00",
+  "publication_date": "2026-11-25",
+  "retrieved_at": "2026-11-25",
+  "market_date": "2026-11-24",
+  "market_session": "A股和港股现金收盘；美国最终收盘未核实",
+  "title": "XM News｜11月24日跨地区四板块补刊",
+  "summary": "11月24日的高价值观察集中在国内治理、亚洲科技外交、A/H股结构分化、欧盟混动汽车贸易规则、新加坡增长预测、跨境航空订单，以及医保和电信服务可及性。",
+  "report_version": "4.1-recovery-backfill",
+  "edition": "four_pillars",
+  "report_scope": {
+    "date": "2026-11-24",
+    "timezone": "Asia/Shanghai",
+    "as_of_note": "历史观察窗口；实际检索于11月25日",
+    "four_pillars": [
+      "politics",
+      "finance",
+      "economy",
+      "livelihood"
+    ]
+  },
+  "market_data": {
+    "a_share": {
+      "indices": [
+        {
+          "name": "上证指数",
+          "close": 3548.37,
+          "change_pct": 0.27
+        },
+        {
+          "name": "深证成指",
+          "close": 10423.6,
+          "change_pct": -0.29
+        },
+        {
+          "name": "创业板指",
+          "close": 2278.99,
+          "change_pct": -0.05
+        },
+        {
+          "name": "科创50",
+          "close": 1250.09,
+          "change_pct": 1.81
+        },
+        {
+          "name": "北证50",
+          "close": 793.6,
+          "change_pct": -0.22
+        }
+      ],
+      "turnover_cny_100m": 16551,
+      "turnover_note": "沪深两市约数，S09；北交所不纳入"
+    },
+    "hong_kong": {
+      "indices": [
+        {
+          "name": "恒生指数",
+          "close": 22219.65,
+          "change_pct": -0.73
+        },
+        {
+          "name": "恒生科技",
+          "close": 3466.87,
+          "change_pct": -1.17
+        },
+        {
+          "name": "恒生国企",
+          "close": 7452.56,
+          "change_pct": -1
+        }
+      ],
+      "turnover_hkd_100m": 2126.33
+    },
+    "global_context": "不引用未核实的美股最终收盘"
+  },
+  "macro_and_policy": {
+    "singapore_q3_gdp_yoy_pct": 6.1,
+    "singapore_q3_gdp_qoq_sa_pct": 1.5,
+    "singapore_2026_forecast_pct_approx": 6,
+    "sg_2027_forecast_range_pct": [
+      2.5,
+      4.5
+    ]
+  },
+  "source_ids": [
+    "S01",
+    "S02",
+    "S03",
+    "S04",
+    "S05",
+    "S06",
+    "S07",
+    "S08",
+    "S09",
+    "S10",
+    "S11",
+    "S12",
+    "S13",
+    "S14",
+    "S15",
+    "S16",
+    "S17",
+    "S18",
+    "S19",
+    "S20",
+    "S21",
+    "S22",
+    "S23",
+    "S24",
+    "S25"
+  ],
+  "limitations": [
+    "本期为11月25日补刊，观察窗口截至11月24日北京时间23:59:59；不是11月24日21:00即时截稿。",
+    "来源检索日期为11月25日；部分来源仅公开摘要或标题，未声称阅读付费全文。",
+    "中国、欧美、新加坡/亚洲均有实际来源；未找到每个事件的所有地区独立新增证据。",
+    "未核验社交媒体原帖、美国最终收盘或额外国际组织新统计，不纳入主要事实。",
+    "行情数据来自公开市场报道而非直接交易所原始文件；相同基础数据不计作独立测量。"
+  ],
+  "disclaimer": "公开信息研究，不构成投资建议。",
+  "sections": {
+    "politics": {
+      "title": "调查进展与区域科技外交",
+      "summary": "国内治理与国际政策空间：区分调查事实、官方表述与政策结果。",
+      "path": "sections/2026-11-24/politics/index.html",
+      "content_path": "content/2026-11-24/politics.md",
+      "source_ids": [
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S05",
+        "S06"
+      ],
+      "confidence": "以具体证据层次为准"
+    },
+    "finance": {
+      "title": "A股结构分化与港股回落",
+      "summary": "上证上涨而深成指、创业板及港股主要指数走弱，不能用单一指数描述风险偏好。",
+      "path": "sections/2026-11-24/finance/index.html",
+      "content_path": "content/2026-11-24/finance.md",
+      "source_ids": [
+        "S07",
+        "S08",
+        "S09",
+        "S10",
+        "S11",
+        "S12"
+      ],
+      "confidence": "以具体证据层次为准"
+    },
+    "economy": {
+      "title": "贸易规则、AI外需与航空订单",
+      "summary": "混动汽车贸易规则与新加坡增长预测、跨境飞机订单共同反映产业链变化。",
+      "path": "sections/2026-11-24/economy/index.html",
+      "content_path": "content/2026-11-24/economy.md",
+      "source_ids": [
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S18",
+        "S24",
+        "S25"
+      ],
+      "confidence": "以具体证据层次为准"
+    },
+    "livelihood": {
+      "title": "数字服务、养老照护与电信竞争",
+      "summary": "从数字入口覆盖到线下实际服务，再到通信市场竞争，观察公共服务与家庭成本。",
+      "path": "sections/2026-11-24/livelihood/index.html",
+      "content_path": "content/2026-11-24/livelihood.md",
+      "source_ids": [
+        "S19",
+        "S20",
+        "S21",
+        "S22",
+        "S23"
+      ],
+      "confidence": "以具体证据层次为准"
+    }
+  },
+  "pages": {
+    "home": "https://1998x-stack.github.io/xm-news/",
+    "politics": "https://1998x-stack.github.io/xm-news/issues/2026-11-24/politics/",
+    "finance": "https://1998x-stack.github.io/xm-news/issues/2026-11-24/finance/",
+    "economy": "https://1998x-stack.github.io/xm-news/issues/2026-11-24/economy/",
+    "livelihood": "https://1998x-stack.github.io/xm-news/issues/2026-11-24/livelihood/"
+  },
+  "data_quality": {
+    "status": "reviewed_public_evidence_with_access_limits",
+    "source_count": 25,
+    "limitations": [
+      "本期为11月25日补刊，观察窗口截至11月24日北京时间23:59:59；不是11月24日21:00即时截稿。",
+      "来源检索日期为11月25日；部分来源仅公开摘要或标题，未声称阅读付费全文。",
+      "中国、欧美、新加坡/亚洲均有实际来源；未找到每个事件的所有地区独立新增证据。",
+      "未核验社交媒体原帖、美国最终收盘或额外国际组织新统计，不纳入主要事实。",
+      "行情数据来自公开市场报道而非直接交易所原始文件；相同基础数据不计作独立测量。"
+    ]
+  },
+  "editorial": {
+    "version": "daily-events-v1",
+    "lead": "11月24日的高价值观察集中在国内治理、亚洲科技外交、A/H股结构分化、欧盟混动汽车贸易规则、新加坡增长预测、跨境航空订单，以及医保和电信服务可及性。",
+    "lenses": [
+      {
+        "label": "中国",
+        "outlets": "纪检监察、外交部、商务部、医保局、同花顺、21财经、财新、每经",
+        "summary": "官方材料记录治理、贸易与公共服务进展；财经和民生媒体补充行情、航空订单及历史养老调查。"
+      },
+      {
+        "label": "欧美",
+        "outlets": "EUR-Lex、Reuters",
+        "summary": "欧盟原始法规确定保障措施；Reuters从政治、贸易、全球市场、亚洲增长与公司交易角度追踪事件。没有核验其他欧美付费媒体全文。"
+      },
+      {
+        "label": "新加坡与亚洲",
+        "outlets": "新加坡METI、CNA、StarHub",
+        "summary": "新加坡本地数据与采访聚焦经济增长、科技外交及通信竞争；官方统计被多家媒体引用，不视为独立测量。"
+      }
+    ],
+    "observations": [
+      {
+        "id": "shanghai-investigation",
+        "pillar": "politics",
+        "title": "上海市委书记接受审查调查",
+        "summary": "新华社公告称陈吉宁涉嫌严重违纪违法并接受中央纪委国家监委审查调查。",
+        "perspectives": "国内官方确认调查状态；Reuters追踪政治背景。未核实亚洲地区有独立新增事实。",
+        "source_ids": [
+          "S01",
+          "S02",
+          "S03"
+        ],
+        "status": "公告确认",
+        "limitation": "仅确认调查阶段，不能推定具体行为、罪名或结论；S01与S02同源。"
+      },
+      {
+        "id": "malaysia-tech",
+        "pillar": "politics",
+        "title": "马来西亚在中美科技限制间维持政策空间",
+        "summary": "马来西亚总理安瓦尔公开谈及与中国、美国开展科技合作的关系。",
+        "perspectives": "CNA强调地区政策选择；Reuters关注芯片管制与对华联系。中国外交部同期其他外交表述仅作为当日背景。",
+        "source_ids": [
+          "S04",
+          "S05",
+          "S06"
+        ],
+        "status": "公开表态",
+        "limitation": "没有核实新双边协议或实际管制豁免；不同报道可能引用同一发言。"
+      },
+      {
+        "id": "ashare-hk",
+        "pillar": "finance",
+        "title": "A股分化，港股主要指数收跌",
+        "summary": "上证+0.27%，深成指−0.29%，创业板−0.05%；恒指−0.73%，恒生科技−1.17%。",
+        "perspectives": "中国行情源交叉核对指数；Reuters全球市场提供背景，但不是A/H股当日波动的因果证明。",
+        "source_ids": [
+          "S07",
+          "S08",
+          "S09",
+          "S10",
+          "S11",
+          "S12"
+        ],
+        "status": "收盘点位交叉核对",
+        "limitation": "成交额不同市场范围不可直接比较；没有核实美国现金市场最终收盘。"
+      },
+      {
+        "id": "hybrid-safeguard",
+        "pillar": "economy",
+        "title": "欧盟公布混动汽车临时保障措施",
+        "summary": "欧盟公报发布2026/2614号法规；中国商务部回应措施拟12月1日开始。",
+        "perspectives": "欧盟法规确定适用范围；中方强调公平和非歧视；Reuters提供贸易背景。",
+        "source_ids": [
+          "S13",
+          "S14",
+          "S15"
+        ],
+        "status": "双方原始材料",
+        "limitation": "措施尚非最终调查裁定；具体配额、车型归类及企业影响需逐条核查。"
+      },
+      {
+        "id": "sg-gdp",
+        "pillar": "economy",
+        "title": "新加坡上调2026年经济增长预测",
+        "summary": "官方三季度GDP同比6.1%，2026年增长预测上调至约6%；2027年预测2.5–4.5%。",
+        "perspectives": "METI为数据源；CNA强调AI需求，Reuters补充外部风险。三者的GDP数字非独立测量。",
+        "source_ids": [
+          "S16",
+          "S17",
+          "S18"
+        ],
+        "status": "官方统计与报道",
+        "limitation": "全年预测不是已实现增速；季度同比与季调环比不能混用。"
+      },
+      {
+        "id": "aircraft-order",
+        "pillar": "economy",
+        "title": "厦门航空签署50架波音飞机购买协议",
+        "summary": "国内财经媒体和Reuters报道厦航购买50架B737-8飞机。",
+        "perspectives": "中国财经媒体强调公告和价格口径，Reuters着眼跨国航空贸易。",
+        "source_ids": [
+          "S24",
+          "S25"
+        ],
+        "status": "媒体报道相互印证",
+        "limitation": "两者可能依据同一公司公告；未核原始交易全文，目录价不等于实际成交价，订单非交付。"
+      },
+      {
+        "id": "care-access",
+        "pillar": "livelihood",
+        "title": "医保数字入口扩大，养老照护仍需观察线下可及性",
+        "summary": "医保局披露截至10月底医保码激活使用人数超过13亿；财新报道历史调查中的养老照护及无障碍障碍。",
+        "perspectives": "中国政府披露覆盖规模，专业媒体追踪老年人实际体验；没有当日独立海外中国照护调查。",
+        "source_ids": [
+          "S19",
+          "S20"
+        ],
+        "status": "官方统计与历史调查摘要",
+        "limitation": "医保码激活并非实际服务可及性；调查为2021–2023年，抽样方法与全文待核。"
+      },
+      {
+        "id": "sg-telco",
+        "pillar": "livelihood",
+        "title": "新加坡电信拟合并，消费者价格成为焦点",
+        "summary": "StarHub与M1宣布拟进行全股份合并；CNA采访讨论套餐价格与竞争。",
+        "perspectives": "企业公告确认交易意向，CNA提供用户价格与竞争视角，Reuters补充交易背景。",
+        "source_ids": [
+          "S21",
+          "S22",
+          "S23"
+        ],
+        "status": "公告与独立采访",
+        "limitation": "需监管及股东批准；高管价格意向不等于长期价格承诺。"
+      }
+    ],
+    "limitations": [
+      "本期为11月25日补刊，观察窗口截至11月24日北京时间23:59:59；不是11月24日21:00即时截稿。",
+      "来源检索日期为11月25日；部分来源仅公开摘要或标题，未声称阅读付费全文。",
+      "中国、欧美、新加坡/亚洲均有实际来源；未找到每个事件的所有地区独立新增证据。",
+      "未核验社交媒体原帖、美国最终收盘或额外国际组织新统计，不纳入主要事实。",
+      "行情数据来自公开市场报道而非直接交易所原始文件；相同基础数据不计作独立测量。"
+    ]
+  }
+}
